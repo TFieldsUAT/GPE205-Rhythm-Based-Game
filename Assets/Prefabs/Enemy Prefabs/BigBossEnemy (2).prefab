@@ -96,6 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 741266103984808125}
+  - component: {fileID: -3818267586501062883}
   m_Layer: 21
   m_Name: BigBossEnemy (2)
   m_TagString: Untagged
@@ -119,3 +120,19 @@ Transform:
   - {fileID: 4108487606247608480}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3818267586501062883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6692121624033661031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b28653743494ba43b39dd248d09de51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossMusic: {fileID: 8300000, guid: d3705114c318726489b1d47e6e2b0d4e, type: 3}
+  bossTechicallyBPM: 0
+  bossHP: 0
+  bossPreferredBPM: 0

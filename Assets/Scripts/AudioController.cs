@@ -1,25 +1,51 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 
 public class AudioController : MonoBehaviour
 {
+
+
     //Gets beats Per Min
     [SerializeField] private float bpm;
+    [SerializeField] int foundAudio;
     // Gets The Audio source
     [SerializeField] private AudioSource audioSource;
     //
     [SerializeField] private Intervals[] intervals;
 
 
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 21 && audioSource == null)
+        {
+        audioSource.resource = other.gameObject.GetComponentInChildren<SpawnManager>().bossMusicGet.GetComponent<AudioResource>();
+        }
+    }
+
     private void Update()
     {
-        //This is for tracking The time of the audio That has passed from Current Interval
-        foreach (var interval in intervals)
+        if (audioSource != null && foundAudio <= 0)
         {
-            float sampleTime = (audioSource.timeSamples / (audioSource.clip.frequency * interval.GetIntervalLength(bpm)));
-            //This checks to see if the time For the Beat has Cross to a new beat by sending the time to the method
-            interval.CheckForNewInterval(sampleTime);
+
+            audioSource.Play();
+            foundAudio = 1;
         }
+
+            //This is for tracking The time of the audio That has passed from Current Interval
+            foreach (var interval in intervals)
+            {
+                float sampleTime = (audioSource.timeSamples / (audioSource.clip.frequency * interval.GetIntervalLength(bpm)));
+                //This checks to see if the time For the Beat has Cross to a new beat by sending the time to the method
+                interval.CheckForNewInterval(sampleTime);
+            }
+        
     }
 }
 

@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
             SpawnBigBoss();
 
         }
-                                if(spawnBossEnemy == true)
+        else if(spawnBossEnemy == true)
                                 { 
 
                                                         //Finding Player and Sorting them for multiplayer 
@@ -105,11 +105,8 @@ public class GameManager : MonoBehaviour
                                                             }
 
                                                         }
-
-
-
                                                         //Finding Enemies And spawn list then Sorting them on the list
-                                                        if (other.gameObject.layer == 20 && spawnablePlace.Count == 0)
+                                                        else if (other.gameObject.layer == 20 && spawnablePlace.Count == 0)
                                                         {
                                                             spawnablePlace.Add(other.gameObject);
                                                             Debug.Log("added to list");
@@ -162,5 +159,7 @@ public class GameManager : MonoBehaviour
     }
 
 
+
+   
 
 }
