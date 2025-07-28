@@ -1,0 +1,561 @@
+fileFormatVersion: 2
+guid: 4e74d6bc7e857dd46835af64ee59afab
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Necromancer_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 432
+        width: 24
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 576a8781aec2c7c45902fb42d036a882
+      internalID: 1539953487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 432
+        width: 24
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e4b0011d9b69384ba74cf76561e385a
+      internalID: 2031121218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_8
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 432
+        width: 19
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7089d2defb0ff8442956bc9a207ba0d5
+      internalID: -1380402996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 432
+        width: 23
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f40fc1e9015e33d49b3eb46b0a550867
+      internalID: -395056042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 304
+        width: 33
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a33a4b253ba7fa34c81795e3a8501873
+      internalID: -536298937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 300
+        width: 43
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3deff33ad6dc52e449af1463337c7353
+      internalID: -2031181443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_22
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 304
+        width: 35
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 959f5aeae8695cd44b05ed4c2839d2d3
+      internalID: -280935171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_23
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 304
+        width: 33
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c0233fa99130e45a19046b550b162e
+      internalID: -18676185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_37
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 174
+        width: 39
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c20135816a66f498553a4a65341869
+      internalID: 870978378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_39
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 176
+        width: 33
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3b8fab7e108c284693289c19ec1f6c6
+      internalID: -1672155078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_41
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 174
+        width: 43
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17f7c5393173d1c449a57cca373ccdb0
+      internalID: -2021358167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_42
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 176
+        width: 33
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 057500dccb7c6a143b398186ad337c6e
+      internalID: -1014771815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_58
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 48
+        width: 26
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08b07a22287b25646964f780115c78b9
+      internalID: 559619341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_60
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 48
+        width: 20
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fd8b86978e67b84094168f0f3936bc7
+      internalID: 1807420607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_62
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 46
+        width: 24
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5e0f8836188d840a9b84f1666c6915
+      internalID: -1723694047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Necromancer_Idle_63
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 48
+        width: 20
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f374f7212f3c304db7ce7fb1f111ace
+      internalID: -561126425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a2b9d43893e3f304384195df6d188e67
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Necromancer_Idle_0: -2055323111
+      Necromancer_Idle_1: 1539953487
+      Necromancer_Idle_10: -395056042
+      Necromancer_Idle_11: 21808375
+      Necromancer_Idle_12: -650315718
+      Necromancer_Idle_13: 1595623323
+      Necromancer_Idle_14: -536298937
+      Necromancer_Idle_15: -2031181443
+      Necromancer_Idle_16: -205397538
+      Necromancer_Idle_17: -1554609166
+      Necromancer_Idle_18: 1078698502
+      Necromancer_Idle_19: 1298583809
+      Necromancer_Idle_2: 2100962473
+      Necromancer_Idle_20: -1053924240
+      Necromancer_Idle_21: 813863042
+      Necromancer_Idle_22: -280935171
+      Necromancer_Idle_23: -18676185
+      Necromancer_Idle_24: -1975824340
+      Necromancer_Idle_25: 538764451
+      Necromancer_Idle_26: 732082463
+      Necromancer_Idle_27: 1982293125
+      Necromancer_Idle_28: -1982970168
+      Necromancer_Idle_29: 43512512
+      Necromancer_Idle_3: -1643919819
+      Necromancer_Idle_30: -1960054396
+      Necromancer_Idle_31: 477212187
+      Necromancer_Idle_32: 1864394147
+      Necromancer_Idle_33: -1333061706
+      Necromancer_Idle_34: 1040740354
+      Necromancer_Idle_35: 1962482678
+      Necromancer_Idle_36: 259716425
+      Necromancer_Idle_37: 870978378
+      Necromancer_Idle_38: 527356623
+      Necromancer_Idle_39: -1672155078
+      Necromancer_Idle_4: 2066241559
+      Necromancer_Idle_40: 1828618921
+      Necromancer_Idle_41: -2021358167
+      Necromancer_Idle_42: -1014771815
+      Necromancer_Idle_43: 199576124
+      Necromancer_Idle_44: -829564979
+      Necromancer_Idle_45: 1271991547
+      Necromancer_Idle_46: -1128124433
+      Necromancer_Idle_47: -728906269
+      Necromancer_Idle_48: -809484195
+      Necromancer_Idle_49: -1753907183
+      Necromancer_Idle_5: -342526061
+      Necromancer_Idle_50: 268426395
+      Necromancer_Idle_51: 882866119
+      Necromancer_Idle_52: 1159386505
+      Necromancer_Idle_53: -1203976444
+      Necromancer_Idle_54: -12931378
+      Necromancer_Idle_55: -1028325153
+      Necromancer_Idle_56: -204276196
+      Necromancer_Idle_57: 1360350903
+      Necromancer_Idle_58: 559619341
+      Necromancer_Idle_59: -214096842
+      Necromancer_Idle_6: 2031121218
+      Necromancer_Idle_60: 1807420607
+      Necromancer_Idle_61: 433334731
+      Necromancer_Idle_62: -1723694047
+      Necromancer_Idle_63: -561126425
+      Necromancer_Idle_64: 196042159
+      Necromancer_Idle_65: 1921267650
+      Necromancer_Idle_66: 615268976
+      Necromancer_Idle_67: -798750564
+      Necromancer_Idle_68: -1354322811
+      Necromancer_Idle_69: 350752022
+      Necromancer_Idle_7: -709172232
+      Necromancer_Idle_70: -1397561984
+      Necromancer_Idle_71: 637366187
+      Necromancer_Idle_72: 1005292230
+      Necromancer_Idle_73: 516233871
+      Necromancer_Idle_74: -1109761920
+      Necromancer_Idle_75: -1498073838
+      Necromancer_Idle_76: 1596157801
+      Necromancer_Idle_8: -1380402996
+      Necromancer_Idle_9: -1169271050
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

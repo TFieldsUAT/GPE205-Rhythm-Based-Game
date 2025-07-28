@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
 
         if (other.gameObject.layer == 21 && spawnBossEnemy == false)
         {
-            bossPOS.position = other.transform.position;
+            bossPOS = other.transform;
             SpawnBigBoss();
 
         }
