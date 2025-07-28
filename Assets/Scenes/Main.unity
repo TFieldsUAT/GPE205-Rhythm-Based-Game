@@ -249,7 +249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 450339769}
-  m_Layer: 18
+  m_Layer: 0
   m_Name: Camera Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 606642934}
   - component: {fileID: 606642933}
   - component: {fileID: 606642932}
-  m_Layer: 18
+  m_Layer: 0
   m_Name: Left Hand Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,6 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 120
+  foundAudio: 0
   audioSource: {fileID: 0}
   intervals:
   - steps: 1
@@ -894,7 +895,7 @@ GameObject:
   - component: {fileID: 1063040175}
   - component: {fileID: 1063040174}
   - component: {fileID: 1063040173}
-  m_Layer: 18
+  m_Layer: 0
   m_Name: Right Hand visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1377,7 +1378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1295436736}
   - component: {fileID: 1295436737}
-  m_Layer: 18
+  m_Layer: 0
   m_Name: Right Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1482,7 +1483,7 @@ GameObject:
   - component: {fileID: 1343434127}
   - component: {fileID: 1343434126}
   - component: {fileID: 1343434129}
-  m_Layer: 18
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1851,6 +1852,7 @@ MonoBehaviour:
   enemySpawned: {fileID: 1469055902}
   currentBossSpawned: {fileID: 0}
   bossMusicGet: {fileID: 0}
+  bosscurrentHP: 0
 --- !u!54 &1469055905
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1909,7 +1911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1719811868}
   - component: {fileID: 1719811869}
-  m_Layer: 18
+  m_Layer: 0
   m_Name: Left Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2014,6 +2016,7 @@ GameObject:
   - component: {fileID: 1866406330}
   - component: {fileID: 1866406333}
   - component: {fileID: 1866406334}
+  - component: {fileID: 1866406335}
   m_Layer: 18
   m_Name: XR Origin (VR)
   m_TagString: Untagged
@@ -2061,7 +2064,7 @@ Transform:
   m_GameObject: {fileID: 1866406329}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24, y: 0, z: -1.08}
+  m_LocalPosition: {x: 0.24, y: 1.15, z: -1.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2103,8 +2106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e36e52f3b78f74194c78f360174284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pfullHP: 0
-  pcurrentHP: 0
+  pfullHP: 12
+  pcurrentHP: 12
   pSTR: 0
   pEND: 0
   pDEX: 0
@@ -2112,6 +2115,33 @@ MonoBehaviour:
   pWIS: 0
   pInt: 0
   statMathGenNumber: 0
+--- !u!54 &1866406335
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866406329}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 262144
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2105860677
 GameObject:
   m_ObjectHideFlags: 0

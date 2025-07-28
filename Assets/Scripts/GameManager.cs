@@ -80,28 +80,32 @@ public class GameManager : MonoBehaviour
                                                             actors.Add(other.gameObject);
                                                             Debug.Log("added to list");
                                                         }
-                                                        else if (other.gameObject.layer == 18 && actors.Count > 0)
+                                                        else if (other.gameObject.layer == 18 && actors.Count <= 0)
                                                         {
                                                             for (int i = 0; i < actors.Count; i++)
                                                             {
-                                                                if (other.gameObject.name == actors[i].gameObject.name)
+                                                                if (other.gameObject.name == actors[i].gameObject.name && actors.Count <= 0)
                                                                 {
                                                                     Debug.Log("Already in list");
                                                                     foundPTargetName++;
+                                                                    return;
                                                                 }
                                                                 else if (other.gameObject.name != actors[i].gameObject.name)
                                                                 {
-                                                                    Debug.Log("Not in list");
+                                                                    Debug.Log("Not in list"); 
+                                                                    return;
                                                                 }
                                                             }
 
                                                             if (foundPTargetName == 0)
                                                             {
                                                                 actors.Add(other.gameObject);
+                                                                 return;         
                                                             }
                                                             else
                                                             {
-                                                                Debug.Log("Nothing added to list");
+                                                                Debug.Log("Nothing added to list");                          
+                                                                return;
                                                             }
 
                                                         }
@@ -153,11 +157,17 @@ public class GameManager : MonoBehaviour
         spawnBossEnemy = true;
         randomBossSpawned = Random.Range(0, spawnableBosses.Count);
         Instantiate(spawnableBosses[randomBossSpawned],bossPOS);
-
+        
 
 
     }
 
+
+
+    public void DmgBoss(int dmgtoBoss)
+    {
+        spawnableBosses[randomBossSpawned].GetComponent<BossFSM>().bossHP =-  dmgtoBoss;
+    }
 
 
    

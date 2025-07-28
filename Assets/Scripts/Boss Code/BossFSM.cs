@@ -7,9 +7,14 @@ public class BossFSM : MonoBehaviour
 
     public AudioResource bossMusic;
     public int bossTechicallyBPM;
-    private int bossMaxHP;
+    [SerializeField]private int bossMaxHP = 50;
     public int bossHP;
 
+
+    private void Start()
+    {
+        bossHP = bossMaxHP;
+    }
 
     public enum TypeOfBossBPM { Slow, Normal, Fast, Intense, Chaotic };
     [SerializeField] TypeOfBossBPM bossPreferredBPM;
@@ -81,6 +86,7 @@ public class BossFSM : MonoBehaviour
 
     }
 
+   
    
     
 
