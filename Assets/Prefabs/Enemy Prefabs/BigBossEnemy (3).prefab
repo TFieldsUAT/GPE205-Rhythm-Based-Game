@@ -45,10 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b28653743494ba43b39dd248d09de51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossMusic: {fileID: 8300000, guid: d3705114c318726489b1d47e6e2b0d4e, type: 3}
-  bossTechicallyBPM: 0
+  bossMusic: {fileID: 8300000, guid: 2908f529ec989da4a8984cdd868336a4, type: 3}
+  bossTechicallyBPM: 160
+  bossMaxHP: 50
   bossHP: 0
-  bossPreferredBPM: 0
+  bossPreferredBPM: 3
 --- !u!1 &6182746828990733656
 GameObject:
   m_ObjectHideFlags: 0

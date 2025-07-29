@@ -9,7 +9,9 @@ public class AudioController : MonoBehaviour
 
     //Gets beats Per Min
     [SerializeField] private float bpm;
+    [SerializeField] private int newBPM;
     [SerializeField] int foundAudio;
+    [SerializeField] AudioResource bossMusic;
     // Gets The Audio source
     [SerializeField] private AudioSource audioSource;
     //
@@ -21,23 +23,29 @@ public class AudioController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.layer == 21 && audioSource == null)
+        //Finds The boss or Spawner And Gets The music From it
+        if (other.gameObject.layer == 21 && bossMusic == null)
         {
-        audioSource.resource = other.gameObject.GetComponentInChildren<SpawnManager>().bossMusicGet.GetComponent<AudioResource>();
+            bossMusic = other.gameObject.GetComponent<SpawnManager>().bossMusicGet;
+            audioSource.resource = bossMusic;
+           newBPM = other.gameObject.GetComponent<SpawnManager>().bossMusicBPM;
         }
     }
 
     private void Update()
     {
-        if (audioSource != null && foundAudio <= 0)
+        //Checks to see if ther is a audio source If so Start the audio But only once.
+        if (bossMusic != null && foundAudio <= 0)
         {
-
+            bpm = newBPM;
             audioSource.Play();
             foundAudio = 1;
         }
 
+        if (bossMusic != null)
+        {
             //This is for tracking The time of the audio That has passed from Current Interval
             foreach (var interval in intervals)
             {
@@ -45,7 +53,7 @@ public class AudioController : MonoBehaviour
                 //This checks to see if the time For the Beat has Cross to a new beat by sending the time to the method
                 interval.CheckForNewInterval(sampleTime);
             }
-        
+        }
     }
 }
 

@@ -8,6 +8,7 @@ public class SpawnManager : MonoBehaviour
     public BossFSM currentBossSpawned;
     public AudioResource bossMusicGet;
     public int bosscurrentHP;
+    public int bossMusicBPM;
 
     private void Update()
     {
@@ -16,6 +17,7 @@ public class SpawnManager : MonoBehaviour
             currentBossSpawned = enemySpawned.GetComponentInChildren<BossFSM>();
             bossMusicGet = enemySpawned.GetComponentInChildren<BossFSM>().bossMusic;
             bosscurrentHP = enemySpawned.GetComponentInChildren<BossFSM>().bossHP;
+            bossMusicBPM = enemySpawned.GetComponentInChildren<BossFSM>().bossTechicallyBPM;
         }
         else
         {
