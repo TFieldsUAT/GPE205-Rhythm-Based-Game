@@ -39,6 +39,7 @@ public class AudioController : MonoBehaviour
         //Checks to see if ther is a audio source If so Start the audio But only once.
         if (bossMusic != null && foundAudio <= 0)
         {
+            //Sets the bpm to The Bpm Of the Spawned boss
             bpm = newBPM;
             audioSource.Play();
             foundAudio = 1;

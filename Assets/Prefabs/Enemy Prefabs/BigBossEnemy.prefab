@@ -47,6 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossMusic: {fileID: 8300000, guid: d3705114c318726489b1d47e6e2b0d4e, type: 3}
   bossTechicallyBPM: 120
+  minionsToSpawn:
+  - {fileID: 2177673296029973262, guid: b71e2d13ffe297b4998ff3ac28099081, type: 3}
+  canISpawnHere: {fileID: 0}
+  randomEnemySpawn: 0
   bossMaxHP: 50
   bossHP: 0
   bossPreferredBPM: 1

@@ -7,29 +7,31 @@ public class MinionFSM : MonoBehaviour
     public int minionHp;
     public float minionAttack;
     public int dmgAmount;
-
+    //Checks to see a few var with minions 
     [SerializeField] bool willMinionAttack;
     [SerializeField] MagicSO[] minionsMagic;
     [SerializeField] float timeTillDestroyed = 10;
     
+
+    // made a enum that allows me to set the minions FSM
     public enum minionsEmotionState { Scared,Aggressive,Happy,Cocky,Determind,Confused,desperate,NonLiving};
    
     [Header("Reaction for The minions Who spawns")]
     [SerializeField] minionsEmotionState minionsEmotionalState;
 
 
-
+    //Minions when first created changes states, This is temp for when i change the spawners 
     private void Awake()
     {
         minionsEmotionalState = minionsEmotionState.Scared+Random.Range(0,7);
         Debug.Log(minionsEmotionalState);
     }
-
+    //allows the switch states machine to work
     private void Start()
     {
        MinionReactions((int)minionsEmotionalState);
     }
-
+    //count down minions time to get destroyed
     private void Update()
     {
         timeTillDestroyed -= Time.deltaTime;
@@ -40,7 +42,7 @@ public class MinionFSM : MonoBehaviour
     }
 
 
-
+    // Sets different stats for minions based on there Current State  
     public void MinionReactions(int reaction)
     {
         switch (reaction)
@@ -108,7 +110,7 @@ public class MinionFSM : MonoBehaviour
     }
 
 
-
+    // Different Stats that Minions can Have Based on states
     public void Scared()
     { 
         
@@ -165,7 +167,7 @@ public class MinionFSM : MonoBehaviour
     }
 
 
-
+    // this code is called once the minions Time runs out or is killed
     public void MinionDestroyed()
     {
         if (willMinionAttack == false)

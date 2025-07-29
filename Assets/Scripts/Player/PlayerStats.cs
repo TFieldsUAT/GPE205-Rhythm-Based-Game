@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour
     {
 
     }
-
+    // allows stats To be compared for rolls later on in the game
     public int statGenerator(int statComparing1, int statComparing2)
     {
 

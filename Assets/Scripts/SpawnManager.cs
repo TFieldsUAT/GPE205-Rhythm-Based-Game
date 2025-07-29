@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
+        //Checks to see is the spawn boss was found if so It Gets A few Varibles from the boss
         if(enemySpawned != null)
         {
             currentBossSpawned = enemySpawned.GetComponentInChildren<BossFSM>();
@@ -26,8 +27,19 @@ public class SpawnManager : MonoBehaviour
     }
 
 
+    //Makes The boss Spawn minions in time with the beat. It is used on audioController
+     public void StartMinionSpawn()
+    {
+        if (enemySpawned != null)
+        {
+            enemySpawned.GetComponentInChildren<BossFSM>().RandomMinionToSpawn();
+        }
+        else
+        {
+            Debug.Log("Boss not found");
+        }
 
-
+     }
     
 
 

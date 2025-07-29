@@ -4,7 +4,7 @@ public class WeaponSO : ScriptableObject
 {
 
 
-
+    //Stats For the weapons that will be added later on 
     [Header("Weapon's bonus Dmg Type")]
     public string weaponsName;
     [TextArea(3, 10)]
@@ -19,6 +19,8 @@ public class WeaponSO : ScriptableObject
     [SerializeField] int minDmg;
     public int dmgAmount;
 
+
+    //allows Me to use this to get dmg numbers for stats of weapons
     public void RandomDmgAmount( int statOne, int statTwo)
     {
             dmgAmount = Random.Range(minDmg, maxDmg)*statOne+statTwo;
