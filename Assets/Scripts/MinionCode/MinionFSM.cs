@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MinionFSM : MonoBehaviour
@@ -14,18 +15,33 @@ public class MinionFSM : MonoBehaviour
     public enum minionsEmotionState { Scared,Aggressive,Happy,Cocky,Determind,Confused,desperate,NonLiving};
    
     [Header("Reaction for The minions Who spawns")]
-    [SerializeField] minionsEmotionState bossPreferredBPM;
+    [SerializeField] minionsEmotionState minionsEmotionalState;
 
 
+
+    private void Awake()
+    {
+        minionsEmotionalState = minionsEmotionState.Scared+Random.Range(0,7);
+        Debug.Log(minionsEmotionalState);
+    }
+
+    private void Start()
+    {
+       MinionReactions((int)minionsEmotionalState);
+    }
 
     private void Update()
     {
         timeTillDestroyed -= Time.deltaTime;
+        if(timeTillDestroyed < 0 || minionHp < 0)
+        {
+            MinionDestroyed();
+        }
     }
 
 
 
-    public void minionReactions(int reaction)
+    public void MinionReactions(int reaction)
     {
         switch (reaction)
         {
@@ -35,7 +51,7 @@ public class MinionFSM : MonoBehaviour
                 //Scared reaction
                 minionHp = Random.Range(1, 6);
                 Scared();
-              
+             
 
                 break;
 
@@ -86,7 +102,7 @@ public class MinionFSM : MonoBehaviour
 
 
         }
-        MinionDestroyed();
+      
 
 
     }
@@ -97,80 +113,81 @@ public class MinionFSM : MonoBehaviour
     { 
         
         timeTillDestroyed =+ Random.Range(0, 20);
-        
+        willMinionAttack = false;
     }
 
     public void Aggresive()
     {
         timeTillDestroyed = +Random.Range(1, 7);
-
+        willMinionAttack = true;
     }
 
 
     public void Happy()
     {
         timeTillDestroyed = +Random.Range(5, 20);
-
+        willMinionAttack = true;
     }
 
 
     public void Cocky()
     {
         timeTillDestroyed = +Random.Range(12, 40);
-
+        willMinionAttack = false;
     }
 
 
     public void Detemind()
     {
         timeTillDestroyed = +Random.Range(2, 10);
+        willMinionAttack = true;
 
     }
 
     public void Confused()
     {
         timeTillDestroyed = +Random.Range(9, 34);
-
+        willMinionAttack = false;
     }
 
 
     public void Desperate()
     {
         timeTillDestroyed = +Random.Range(2, 10);
-
+        willMinionAttack = true;
     }
 
 
     public void NonLiving()
     {
         timeTillDestroyed = +Random.Range(18, 60);
-
+        willMinionAttack = true;
     }
 
 
 
     public void MinionDestroyed()
     {
-        if (timeTillDestroyed <= 0 && willMinionAttack == false)
+        if (willMinionAttack == false)
         {
             dmgAmount = (int)minionAttack + Random.Range(0, 3);
             //Boss Should take Dmg
             GameManager.instance.DmgBoss(dmgAmount);
-            Destroy(this); return;
+            Destroy(gameObject); return;
            
         }
-        else if (timeTillDestroyed <= 0 && willMinionAttack == true)
+        else if (willMinionAttack == true)
         {
             dmgAmount = (int)minionAttack + Random.Range(0, 3);
             //Player Takes Dmg
-
-            Destroy(this); return;
+            GameManager.instance.DmgtoPlayer(dmgAmount);
+            Destroy(gameObject); return;
         }
         else if (timeTillDestroyed >= 0 && minionHp <=0)
         {
             dmgAmount = (int)timeTillDestroyed + (int)minionAttack + Random.Range(0, 3);
             GameManager.instance.DmgBoss(dmgAmount);
-            Destroy(this); return;
+            Destroy(gameObject); return;
         }
     }
 

@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [SerializeField] Transform bossPOS;
+    [SerializeField] GameObject bossSpawn;
 
     public int foundPTargetName = 0;
     public int foundETargetName = 0;
@@ -156,7 +157,7 @@ public class GameManager : MonoBehaviour
     {
         spawnBossEnemy = true;
         randomBossSpawned = Random.Range(0, spawnableBosses.Count);
-        Instantiate(spawnableBosses[randomBossSpawned],bossPOS);
+       bossSpawn = Instantiate(spawnableBosses[randomBossSpawned],bossPOS);
         
 
 
@@ -166,10 +167,15 @@ public class GameManager : MonoBehaviour
 
     public void DmgBoss(int dmgtoBoss)
     {
-        spawnableBosses[randomBossSpawned].GetComponent<BossFSM>().bossHP =-  dmgtoBoss;
+        bossSpawn.GetComponent<BossFSM>().bossHP -= dmgtoBoss;
+        Debug.Log("Boss Has Taken:" + dmgtoBoss + " Boss Has: " + bossSpawn.GetComponent<BossFSM>().bossHP + "  Hp Left ");
     }
 
-
+    public void DmgtoPlayer(int dmgtoPlayer)
+    {
+        actors[0].GetComponent<PlayerStats>().pcurrentHP -= dmgtoPlayer;
+        Debug.Log("Player Has Taken:" + dmgtoPlayer + " Player Has: " + actors[0].GetComponent<PlayerStats>().pcurrentHP + "  Hp Left ");
+    }
    
 
 }
