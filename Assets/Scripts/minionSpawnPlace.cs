@@ -4,6 +4,7 @@ public class minionSpawnPlace : MonoBehaviour
 {
    [SerializeField] private Transform minSpawnPlace;
     [SerializeField] private MinionFSM minionDetector;
+    [SerializeField] float downTime;
     public bool isSpawnable;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,13 +18,15 @@ public class minionSpawnPlace : MonoBehaviour
     {
         //Checks to see if there is a minion in the spawn area. If so don't added another minion
         minionDetector = minSpawnPlace.GetComponentInChildren<MinionFSM>();
-
-        if(minionDetector != null)
+        downTime -= Time.deltaTime;
+        if (minionDetector != null && downTime >= 0)
         {
+         
             isSpawnable = false;
         }
-        else
+        else if (minionDetector == null && downTime < 0)
         {
+            downTime = Random.Range(4, 15);
             isSpawnable = true;
         }
 

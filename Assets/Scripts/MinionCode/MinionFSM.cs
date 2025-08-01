@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,10 +8,11 @@ public class MinionFSM : MonoBehaviour
     public int minionHp;
     public float minionAttack;
     public int dmgAmount;
+    public GameObject emotionText;
     //Checks to see a few var with minions 
     [SerializeField] bool willMinionAttack;
     [SerializeField] MagicSO[] minionsMagic;
-    [SerializeField] float timeTillDestroyed = 10;
+    [SerializeField] float timeTillDestroyed = 30;
     
 
     // made a enum that allows me to set the minions FSM
@@ -24,16 +26,20 @@ public class MinionFSM : MonoBehaviour
     private void Awake()
     {
         minionsEmotionalState = minionsEmotionState.Scared+Random.Range(0,7);
-        Debug.Log(minionsEmotionalState);
+        //Debug.Log(minionsEmotionalState);
     }
     //allows the switch states machine to work
     private void Start()
     {
+        emotionText.GetComponent<TextMeshProUGUI>().text = minionsEmotionalState.ToString();
+        Debug.Log(emotionText.GetComponent<TextMeshProUGUI>().text);
        MinionReactions((int)minionsEmotionalState);
     }
     //count down minions time to get destroyed
     private void Update()
     {
+
+       // gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, GameManager.instance.actors[0].transform.position, 6);
         timeTillDestroyed -= Time.deltaTime;
         if(timeTillDestroyed < 0 || minionHp < 0)
         {
@@ -120,8 +126,10 @@ public class MinionFSM : MonoBehaviour
 
     public void Aggresive()
     {
+
         timeTillDestroyed = +Random.Range(1, 7);
         willMinionAttack = true;
+      
     }
 
 
@@ -129,6 +137,7 @@ public class MinionFSM : MonoBehaviour
     {
         timeTillDestroyed = +Random.Range(5, 20);
         willMinionAttack = true;
+        
     }
 
 
@@ -143,6 +152,7 @@ public class MinionFSM : MonoBehaviour
     {
         timeTillDestroyed = +Random.Range(2, 10);
         willMinionAttack = true;
+       
 
     }
 
@@ -157,6 +167,7 @@ public class MinionFSM : MonoBehaviour
     {
         timeTillDestroyed = +Random.Range(2, 10);
         willMinionAttack = true;
+       
     }
 
 

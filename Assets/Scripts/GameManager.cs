@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
 
                            }
             // Checks to see if spawn spot has beed added to array or not More of less the code added above
-                             else if (other.gameObject.layer == 20 && spawnablePlace.Count > 0 && foundETargetName < spawnablePlace.Count + 5)
+                             else if (other.gameObject.layer == 20 && spawnablePlace.Count > 0 && foundETargetName < spawnablePlace.Count + 6)
                              {
                                for (int i = 0; i < spawnablePlace.Count; i++)
                                {
