@@ -9,9 +9,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform leveltileSpawn;
     public GameObject playerSpawnPosition;
     public int randomSpawnPlace;
+    public int randomTileSpawn;
     [SerializeField] GameObject tempWeapon;
     [SerializeField] GameObject xrPlayer;
-
+ 
 
     [Header("TileMap")]
     [SerializeField] int tileX;
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
     [Header ("Player And Spawnable Places")]
     public List<GameObject> actors;
     public List<GameObject> spawnablePlace;
+    public List<GameObject> typesOfTiles;
     public List <Vector3> groundTiles;
 
     private void Awake()
@@ -91,86 +93,7 @@ public class GameManager : MonoBehaviour
            // SpawnBigBoss();
 
         }
-        else if(spawnBossEnemy == true)
-        { 
-
-           //Finding Player and Sorting them for multiplayer 
-            if (other.gameObject.layer == 18 && actors.Count == 0)
-            {
-                //if Layer Is Correct And Actor in list is zero Add Actor.
-             actors.Add(other.gameObject);
-             Debug.Log("added to list");
-             }
-                else if (other.gameObject.layer == 18 && actors.Count <= 0)
-                 {
-                //Checks to see if any actor that was added is the same as any other actor bascially stopping actors from being added twice
-                  for (int i = 0; i < actors.Count; i++)
-                   {
-                    //
-                     if (other.gameObject.name == actors[i].gameObject.name && actors.Count <= 0)
-                     {
-                      Debug.Log("Already in list");
-                      foundPTargetName++;
-                      return;
-                     }
-                       else if (other.gameObject.name != actors[i].gameObject.name)
-                       {
-                       Debug.Log("Not in list"); 
-                       return;
-                       }
-                   }
-                  // If no actor added add actor
-                  if (foundPTargetName == 0)
-                   {
-                   actors.Add(other.gameObject);
-                   return;         
-                   }
-                   else
-                    {
-                     Debug.Log("Nothing added to list");                          
-                    return;
-                   }
-
-                }
-                          //Finding Enemies And spawn list then Sorting them on the list
-                else   if (other.gameObject.layer == 20 && spawnablePlace.Count == 0)
-                           {
-                //adds a space for spawning in the game for minions 
-                            spawnablePlace.Add(other.gameObject);
-                            Debug.Log("added to list");
-
-                           }
-            // Checks to see if spawn spot has beed added to array or not More of less the code added above
-                             else if (other.gameObject.layer == 20 && spawnablePlace.Count > 0 && foundETargetName < spawnablePlace.Count + 6)
-                             {
-                               for (int i = 0; i < spawnablePlace.Count; i++)
-                               {
-                                if (other.gameObject.name == spawnablePlace[i].gameObject.name)
-                                {
-                                 Debug.Log("Already in list");
-                                 foundETargetName++;
-                                }
-                                 else if (other.gameObject.name != spawnablePlace[i].gameObject.name)
-                                 {
-                                Debug.Log("Not in list");
-                                 }
-                               }
-
-                                if (foundETargetName == 0)
-                                {
-                                spawnablePlace.Add(other.gameObject);
-
-                                }
-                                else
-                                {
-                                 Debug.Log("Nothing added to list");
-
-                                }
-
-                             }
-
-        }
-
+      
 
     }
 
@@ -210,6 +133,8 @@ public class GameManager : MonoBehaviour
             }*/
            if(i < tileX)
             {
+                randomTileSpawn = Random.Range(0, typesOfTiles.Count);
+                leveltileSpawn = typesOfTiles[randomTileSpawn].transform;
                 levelTiles++;
                 Instantiate(leveltileSpawn);
                 leveltileSpawn.transform.position = new Vector3(i, 0, gridSpacing);
@@ -219,6 +144,8 @@ public class GameManager : MonoBehaviour
             }
             else if(i > tileX)
             {
+                randomTileSpawn = Random.Range(0, typesOfTiles.Count);
+                leveltileSpawn = typesOfTiles[randomTileSpawn].transform;
                 i = 0;
                 levelTiles++;
                 Instantiate(leveltileSpawn);
@@ -274,8 +201,9 @@ public class GameManager : MonoBehaviour
         //make player spawn
         playerSpawnPosition = Instantiate(xrPlayer);
         actors.Add(playerSpawnPosition);
-        Instantiate(tempWeapon, playerSpawnPosition.transform);
-        tempWeapon.transform.parent = null;
+        // Instantiate(tempWeapon, playerSpawnPosition.transform);
+       
+       
 
     }
 
