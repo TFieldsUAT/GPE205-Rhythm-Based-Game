@@ -29,7 +29,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+      gameObject.transform.position = GameManager.instance.groundTiles[GameManager.instance.randomSpawnPlace];
     }
 
     // Update is called once per frame

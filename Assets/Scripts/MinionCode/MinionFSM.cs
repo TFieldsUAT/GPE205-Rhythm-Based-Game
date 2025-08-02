@@ -185,7 +185,7 @@ public class MinionFSM : MonoBehaviour
         {
             dmgAmount = (int)minionAttack + Random.Range(0, 3);
             //Boss Should take Dmg
-            GameManager.instance.DmgBoss(dmgAmount);
+           // GameManager.instance.DmgBoss(dmgAmount);
             Destroy(gameObject); return;
            
         }
@@ -199,7 +199,7 @@ public class MinionFSM : MonoBehaviour
         else if (timeTillDestroyed >= 0 && minionHp <=0)
         {
             dmgAmount = (int)timeTillDestroyed + (int)minionAttack + Random.Range(0, 3);
-            GameManager.instance.DmgBoss(dmgAmount);
+           // GameManager.instance.DmgBoss(dmgAmount);
             Destroy(gameObject); return;
         }
     }
