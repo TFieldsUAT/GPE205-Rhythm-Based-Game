@@ -449,7 +449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6775331247848166788, guid: 7059c685418259747b11d28bf04706d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6775331247848166788, guid: 7059c685418259747b11d28bf04706d1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -457,7 +457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6775331247848166788, guid: 7059c685418259747b11d28bf04706d1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 6775331247848166788, guid: 7059c685418259747b11d28bf04706d1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -493,26 +493,26 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e63c5dff24e488147a838dad26ec7914, type: 2}
     - target: {fileID: 8458359496643756320, guid: 7059c685418259747b11d28bf04706d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6775331247848166788, guid: 7059c685418259747b11d28bf04706d1, type: 3}
       insertIndex: 0
-      addedObject: {fileID: 4804557401549910530}
-    - targetCorrespondingSourceObject: {fileID: 6775331247848166788, guid: 7059c685418259747b11d28bf04706d1, type: 3}
-      insertIndex: 1
       addedObject: {fileID: 2547265628468183739}
     - targetCorrespondingSourceObject: {fileID: 6775331247848166788, guid: 7059c685418259747b11d28bf04706d1, type: 3}
-      insertIndex: 2
+      insertIndex: 1
       addedObject: {fileID: 401791845302420334}
     - targetCorrespondingSourceObject: {fileID: 6775331247848166788, guid: 7059c685418259747b11d28bf04706d1, type: 3}
-      insertIndex: 3
+      insertIndex: 2
       addedObject: {fileID: 3337197831516972313}
     - targetCorrespondingSourceObject: {fileID: 6775331247848166788, guid: 7059c685418259747b11d28bf04706d1, type: 3}
-      insertIndex: 4
+      insertIndex: 3
       addedObject: {fileID: 3041041836384838216}
+    - targetCorrespondingSourceObject: {fileID: 6775331247848166788, guid: 7059c685418259747b11d28bf04706d1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4804557401549910530}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5464769356510776035, guid: 7059c685418259747b11d28bf04706d1, type: 3}
       insertIndex: -1
@@ -538,19 +538,35 @@ MonoBehaviour:
   spawnArea: {fileID: 4046056135991248578}
   typeOfSpawns:
   - {fileID: 100000, guid: c8529c51ad24d3a4f92c8578f111c5f3, type: 3}
-  - {fileID: 7295565647549083207, guid: afb4147c0a55e0e458c75b164cd01418, type: 3}
+  - {fileID: 3986007849690009879, guid: eabe454b1f3005c4388164a2cd26c714, type: 3}
   - {fileID: 7286849079600807180, guid: 71b9031b0ddd957409e8afd6ab919208, type: 3}
   - {fileID: 100000, guid: 76f7ee4fa75f3854ab72808504db2ea1, type: 3}
   - {fileID: 2702344096640131026, guid: bc8c045fba707864fa2ac6a56c779c30, type: 3}
   - {fileID: 100000, guid: 73529d7b7bd60c34685c8becd219fb23, type: 3}
   - {fileID: 7790325201489237985, guid: 8ec4a3e59fe27b148af42d59d1267c74, type: 3}
   - {fileID: 1163899032141010448, guid: 5ae6fa85798346547802886609ef1d69, type: 3}
+  - {fileID: 4924067322461387404, guid: 5d4d3516c09708d4c9175e3987329f7c, type: 3}
+  - {fileID: 7537131238602586288, guid: da21476e1a16efe49a1097a91ae3f47b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
   spawnObject: {fileID: 0}
+  blockers: {fileID: 3443626255250016760, guid: df8e5e284fd16154f8312093c6310f81, type: 3}
   randomSpawner: 0
+  areaToSpawnBlockers: []
+  spawnBlocker: 0
   canISpawnSomething: 0
+  lRayHit: {fileID: 0}
+  rRayHit: {fileID: 0}
+  fRayHit: {fileID: 0}
+  bRayHit: {fileID: 0}
+  lHit: 0
+  rHit: 0
+  fHit: 0
+  bHit: 0
 --- !u!4 &1387834796101898854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6775331247848166788, guid: 7059c685418259747b11d28bf04706d1, type: 3}

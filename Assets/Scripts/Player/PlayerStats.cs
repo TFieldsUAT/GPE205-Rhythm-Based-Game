@@ -24,6 +24,8 @@ public class PlayerStats : MonoBehaviour
     public int pWIS;
     public int pInt;
 
+    public GameObject playerInv;
+
     public int statMathGenNumber;
 
     // Start is called before the first frame update

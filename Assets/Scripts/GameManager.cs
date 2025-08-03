@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -6,14 +7,12 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] Transform bossPOS;
     [SerializeField] GameObject bossSpawn;
-    [SerializeField] Transform leveltileSpawn;
+    [SerializeField] GameObject leveltileSpawn;
     public GameObject playerSpawnPosition;
     public int randomSpawnPlace;
     public int randomTileSpawn;
     [SerializeField] GameObject tempWeapon;
     [SerializeField] GameObject xrPlayer;
- 
-
     [Header("TileMap")]
     [SerializeField] int tileX;
     [SerializeField] int tileY;
@@ -24,7 +23,6 @@ public class GameManager : MonoBehaviour
 
     public int foundPTargetName = 0;
     public int foundETargetName = 0;
-    private int randomBossSpawned;
     private float levelTiles;
 
     public bool spawnBossEnemy;
@@ -42,6 +40,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> spawnablePlace;
     public List<GameObject> typesOfTiles;
     public List <Vector3> groundTiles;
+    public List <GameObject> setGround;
 
     private void Awake()
     {
@@ -67,7 +66,7 @@ public class GameManager : MonoBehaviour
         tileTotal = tileX * tileY;
         LevelTileSpawner();
         CreatePlayer();
-
+        SetBound();
     }
 
     // Update is called once per frame
@@ -87,13 +86,7 @@ public class GameManager : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
-        if (other.gameObject.layer == 21 && spawnBossEnemy == false)
-        {
-            bossPOS = other.transform;
-           // SpawnBigBoss();
-
-        }
-      
+        
 
     }
 
@@ -102,63 +95,56 @@ public class GameManager : MonoBehaviour
 
     private void LevelTileSpawner()
     {
+
+       
         // Gets and creates A pos For the player to be spawned on 
-        for (int i = 0; levelTiles < tileTotal; i++)
+        for (int i = 0; levelTiles <= tileTotal; i++)
         {
-
-           /* if (i <= 3 && i >= 0)
-            {
-                //adds one to the spawner to bascially create another row when it hits a certain point 
-                levelTiles++;
-                Instantiate(leveltileSpawn);
-                leveltileSpawn.transform.position = new Vector3(i, 0, 0);
-                groundTiles.Add(leveltileSpawn.transform.position);
-
-            }
-            else if (i >= 3 && i <= 7)
-            {
-
-                levelTiles++;
-                Instantiate(leveltileSpawn);
-                leveltileSpawn.transform.position = new Vector3(i - 4, 0, -1);
-                groundTiles.Add(leveltileSpawn.transform.position);
-            }
-            else if (i >= 7 && i <= 12)
-            {
-
-                levelTiles++;
-                Instantiate(leveltileSpawn);
-                leveltileSpawn.transform.position = new Vector3(i - 8, 0, -2);
-                groundTiles.Add(leveltileSpawn.transform.position);
-            }*/
+            //Checks to see if the tiles are greater than the person tile count
            if(i < tileX)
             {
                 randomTileSpawn = Random.Range(0, typesOfTiles.Count);
-                leveltileSpawn = typesOfTiles[randomTileSpawn].transform;
+                leveltileSpawn = typesOfTiles[randomTileSpawn];
                 levelTiles++;
-                Instantiate(leveltileSpawn);
-                leveltileSpawn.transform.position = new Vector3(i, 0, gridSpacing);
-                groundTiles.Add(leveltileSpawn.GetChild(0).transform.position);
+           setGround.Add(Instantiate(leveltileSpawn));
+             
 
+                if (i == randomSpawnPlace)
+                {
+                    leveltileSpawn.GetComponent<tileSpawner>().DestroySpawnObject();
+                }
+                leveltileSpawn.transform.position = new Vector3(i, 0, gridSpacing);
+                groundTiles.Add(leveltileSpawn.transform.GetChild(0).transform.position);
+             
 
             }
             else if(i > tileX)
             {
+                
                 randomTileSpawn = Random.Range(0, typesOfTiles.Count);
-                leveltileSpawn = typesOfTiles[randomTileSpawn].transform;
+                leveltileSpawn = typesOfTiles[randomTileSpawn];
                 i = 0;
                 levelTiles++;
-                Instantiate(leveltileSpawn);
+                setGround.Add(Instantiate(leveltileSpawn));
+
+                if (i == randomSpawnPlace)
+                {
+                    leveltileSpawn.GetComponent<tileSpawner>().DestroySpawnObject();
+                }
+
                 leveltileSpawn.transform.position = new Vector3(i, 0, gridSpacing--);
-                groundTiles.Add(leveltileSpawn.GetChild(0).transform.position);
+                groundTiles.Add(leveltileSpawn.transform.GetChild(0).transform.position);
+             
             }
 
+           
 
             else
             {
                 Debug.Log("Code error");
             }
         }
+       
 
     }
 
@@ -196,7 +182,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Random pos choosen was: " + randomSpawnPlace + groundTiles[randomSpawnPlace]);
         //Changes where the player Spawn
 
-
+        setGround[randomSpawnPlace].GetComponent<tileSpawner>().DestroySpawnObject();
+      
 
         //make player spawn
         playerSpawnPosition = Instantiate(xrPlayer);
@@ -207,6 +194,15 @@ public class GameManager : MonoBehaviour
 
     }
 
+    //Sets the bounds for around the player  basically checks the space around the player
+    private void SetBound()
+    {
+        foreach(GameObject t in setGround)
+        {
+            
+            t.GetComponent<tileSpawner>().SeeWhatsAroundMe();
+        }
+    }
 
 
 

@@ -21,23 +21,25 @@ public class HeadTargetingSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // this is for combat when its added
         if (B_button.action.WasPressedThisFrame())
         {
             Debug.Log("B was pressed");
         }
+        //Checks to see if the raycast hit anything 
         if (Physics.Raycast(vrCamera.position, vrCamera.forward, out headTargeting, headTargetingDis, targetingMask, QueryTriggerInteraction.UseGlobal))
         {
             Debug.Log("Hit target");
             targetHitTransform = headTargeting.transform;
             targetHitTransform.GetChild(0).gameObject.SetActive(true);
 
-
+            //Saves the enemy for later attacks in battle mode 
             if (B_button.action.WasPressedThisFrame() && targetHitTransform)
             {
                 foundTargetName = 0;
                 if (multiTargetTransform.Count > 0)
                 {
-
+                    //adds a enemy to array 
                     for (int i = 0; i < multiTargetTransform.Count; i++)
                     {
                         if (targetHitTransform.gameObject.name == multiTargetTransform[i].gameObject.name)
@@ -82,7 +84,7 @@ public class HeadTargetingSystem : MonoBehaviour
         Debug.DrawRay(vrCamera.position, vrCamera.forward, Color.green);
     }
 
-
+    //Clears the array or enemy target list
     public void DumpTargetList()
     {
         multiTargetTransform.Clear();

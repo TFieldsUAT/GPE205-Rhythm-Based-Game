@@ -1156,6 +1156,7 @@ MonoBehaviour:
   pREF: 0
   pWIS: 0
   pInt: 0
+  playerInv: {fileID: 2564686811689669157}
   statMathGenNumber: 0
 --- !u!54 &3401253645523984160
 Rigidbody:
@@ -1198,7 +1199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetingMask:
     serializedVersion: 2
-    m_Bits: 524352
+    m_Bits: 524864
   headTargetingDis: 1000
   targetHitTransform: {fileID: 0}
   multiTargetTransform: []

@@ -25,6 +25,7 @@ public class MinionFSM : MonoBehaviour
     //Minions when first created changes states, This is temp for when i change the spawners 
     private void Awake()
     {
+        gameObject.transform.SetParent(null);
         minionsEmotionalState = minionsEmotionState.Scared+Random.Range(0,7);
         //Debug.Log(minionsEmotionalState);
     }
@@ -32,15 +33,15 @@ public class MinionFSM : MonoBehaviour
     private void Start()
     {
         emotionText.GetComponent<TextMeshProUGUI>().text = minionsEmotionalState.ToString();
-        Debug.Log(emotionText.GetComponent<TextMeshProUGUI>().text);
+        //Debug.Log(emotionText.GetComponent<TextMeshProUGUI>().text);
        MinionReactions((int)minionsEmotionalState);
     }
     //count down minions time to get destroyed
     private void Update()
     {
 
-       // gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, GameManager.instance.actors[0].transform.position, 6);
-        timeTillDestroyed -= Time.deltaTime;
+     
+       // timeTillDestroyed -= Time.deltaTime;
         if(timeTillDestroyed < 0 || minionHp < 0)
         {
             MinionDestroyed();
