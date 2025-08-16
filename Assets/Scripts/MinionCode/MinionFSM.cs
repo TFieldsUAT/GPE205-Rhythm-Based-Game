@@ -45,7 +45,7 @@ public class MinionFSM : MonoBehaviour
     //count down minions time to get destroyed
     private void Update()
     {
-
+       
      
         timeForMovement -= Time.deltaTime;
 
@@ -219,7 +219,7 @@ public class MinionFSM : MonoBehaviour
     // this code is called once the minions Time runs out or is killed
     public void MinionDestroyed()
     {
-        if (willMinionAttack == false)
+       /* if (willMinionAttack == false)
         {
             dmgAmount = (int)minionAttack + Random.Range(0, 3);
             //Boss Should take Dmg
@@ -233,13 +233,23 @@ public class MinionFSM : MonoBehaviour
             //Player Takes Dmg
             GameManager.instance.DmgtoPlayer(dmgAmount);
             Destroy(gameObject); return;
-        }
-        else if (timeTillDestroyed >= 0 && minionHp <=0)
+        }*/
+        if (timeTillDestroyed >= 0 && minionHp <=0)
         {
-            dmgAmount = (int)timeTillDestroyed + (int)minionAttack + Random.Range(0, 3);
-           // GameManager.instance.DmgBoss(dmgAmount);
+            //  dmgAmount = (int)timeTillDestroyed + (int)minionAttack + Random.Range(0, 3);
+            // GameManager.instance.DmgBoss(dmgAmount);
+            Debug.Log("Minion has been defeated");
             Destroy(gameObject); return;
+          
         }
+    }
+
+
+
+    public void DmgMinion(int Dmgs)
+    {
+
+        minionHp -= Dmgs;
     }
 
 }
