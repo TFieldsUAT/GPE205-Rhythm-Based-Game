@@ -1,10 +1,14 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class MinionFSM : MonoBehaviour
 {
     public string minionNane;
+    public GameObject enemiesTarget;
+    public float timeForMovement = 10;
+    public float speedOfMovement = 1f;
     public int minionHp;
     public float minionAttack;
     public int dmgAmount;
@@ -32,16 +36,26 @@ public class MinionFSM : MonoBehaviour
     //allows the switch states machine to work
     private void Start()
     {
+
         emotionText.GetComponent<TextMeshProUGUI>().text = minionsEmotionalState.ToString();
         //Debug.Log(emotionText.GetComponent<TextMeshProUGUI>().text);
        MinionReactions((int)minionsEmotionalState);
+        enemiesTarget = GameManager.instance.actors[0];
     }
     //count down minions time to get destroyed
     private void Update()
     {
 
      
-       // timeTillDestroyed -= Time.deltaTime;
+        timeForMovement -= Time.deltaTime;
+
+        if (timeForMovement < 0)
+        {
+            EnemyMoveTowards();
+        }
+
+
+
         if(timeTillDestroyed < 0 || minionHp < 0)
         {
             MinionDestroyed();
@@ -177,6 +191,29 @@ public class MinionFSM : MonoBehaviour
         timeTillDestroyed = +Random.Range(18, 60);
         willMinionAttack = true;
     }
+
+
+
+    private void EnemyMoveTowards()
+    {
+
+
+       if(transform.position != enemiesTarget.transform.position && willMinionAttack)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, enemiesTarget.transform.position, speedOfMovement);
+            //transform.position = new Vector3( transform.position.x +1,transform.position.y,transform.position.z);
+            timeForMovement = 10;
+        }else if(transform.position != enemiesTarget.transform.position && !willMinionAttack)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, -enemiesTarget.transform.position, speedOfMovement);
+            //transform.position = new Vector3( transform.position.x +1,transform.position.y,transform.position.z);
+            timeForMovement = 10;
+
+        }
+      
+
+    }    
+
 
 
     // this code is called once the minions Time runs out or is killed

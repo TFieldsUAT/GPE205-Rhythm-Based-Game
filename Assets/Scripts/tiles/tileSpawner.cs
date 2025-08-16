@@ -6,9 +6,10 @@ public class tileSpawner : MonoBehaviour
    [SerializeField] Transform spawnArea;
    [SerializeField] List<GameObject> typeOfSpawns;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] GameObject spawnObject;
+    public GameObject spawnObject;
     [SerializeField] GameObject blockers;
     [SerializeField] int randomSpawner;
+    [SerializeField] GameObject enemySpawn;
     [SerializeField]  List<Vector3> areaToSpawnBlockers;
     [SerializeField]  int spawnBlocker;
     public bool canISpawnSomething;
@@ -41,6 +42,7 @@ public class tileSpawner : MonoBehaviour
         if (typeOfSpawns[randomSpawner].gameObject != null && canISpawnSomething == true)
         {
            spawnObject = Instantiate(typeOfSpawns[randomSpawner], spawnArea);
+            canISpawnSomething = false;
         }
         else
         {
@@ -53,6 +55,8 @@ public class tileSpawner : MonoBehaviour
 
 
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -159,6 +163,14 @@ public class tileSpawner : MonoBehaviour
             blockers.transform.position = gameObject.transform.position + Vector3.back;
             Debug.Log("Nothing Is Back of me");
         }
+
+
+    }
+
+
+    public void spawnEnemy()
+    {
+        spawnObject = Instantiate(enemySpawn, spawnArea);
 
 
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
     public static GameManager instance;
     [SerializeField] Transform bossPOS;
     [SerializeField] GameObject bossSpawn;
@@ -11,6 +12,18 @@ public class GameManager : MonoBehaviour
     public GameObject playerSpawnPosition;
     public int randomSpawnPlace;
     public int randomTileSpawn;
+    public int randomEnemyPlaceSpawner;
+
+
+
+    [Header("Enemy Caculator")]
+    public int levelInPlay = 1;
+    public int maxNumberOfEnemies;
+    public int amountOfEnemies;
+    public int loopBreaker = 0;
+
+
+    [Header("Player Stuff")]
     [SerializeField] GameObject tempWeapon;
     [SerializeField] GameObject xrPlayer;
     [Header("TileMap")]
@@ -32,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Enemies that can Spawn")]
 
-    [SerializeField] List<GameObject> spawnableBosses;
+    [SerializeField] List<GameObject> spawnEnemies;
 
 
     [Header ("Player And Spawnable Places")]
@@ -62,31 +75,23 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        maxNumberOfEnemies = Random.Range(0,4)+levelInPlay;
         battleStart = true;
         tileTotal = tileX * tileY;
         LevelTileSpawner();
         CreatePlayer();
         SetBound();
+      
     }
 
     // Update is called once per frame
     void Update()
     {
      
-        if(battleStart == true)
+        if(battleStart == true && loopBreaker < 30)
         {
-
+            SetEnemies();
         }
-
-    }
-
-
-
-
-    private void OnTriggerStay(Collider other)
-    {
-
-        
 
     }
 
@@ -182,8 +187,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Random pos choosen was: " + randomSpawnPlace + groundTiles[randomSpawnPlace]);
         //Changes where the player Spawn
 
+        //Makes it so enemies can't spawn here.
         setGround[randomSpawnPlace].GetComponent<tileSpawner>().DestroySpawnObject();
-      
+        setGround[randomSpawnPlace].GetComponent<tileSpawner>().canISpawnSomething = false;
 
         //make player spawn
         playerSpawnPosition = Instantiate(xrPlayer);
@@ -203,6 +209,33 @@ public class GameManager : MonoBehaviour
             t.GetComponent<tileSpawner>().SeeWhatsAroundMe();
         }
     }
+
+
+    private void SetEnemies()
+    {
+  
+            randomEnemyPlaceSpawner = Random.Range(0, setGround.Count);
+
+            //Spawn a random enemy on the map
+            if (setGround[randomEnemyPlaceSpawner].GetComponent<tileSpawner>().canISpawnSomething == true && amountOfEnemies <= maxNumberOfEnemies)
+            {
+            //Sets The enemy on a plane so the enemy can start attacking.
+              setGround[randomEnemyPlaceSpawner].GetComponent<tileSpawner>().spawnEnemy();
+              spawnEnemies.Add ( setGround[randomEnemyPlaceSpawner].GetComponent<tileSpawner>().spawnObject);
+                amountOfEnemies++;
+            Debug.Log(" Enemy spawn :" + randomEnemyPlaceSpawner);
+
+            }
+            else
+            {
+                Debug.Log("EnemyNotSpawn");
+            //Makes Sure The enemy loop Stops happening
+                loopBreaker++;
+                return;
+            }
+        
+    }
+
 
 
 

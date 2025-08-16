@@ -545,8 +545,8 @@ MonoBehaviour:
   - {fileID: 100000, guid: 73529d7b7bd60c34685c8becd219fb23, type: 3}
   - {fileID: 7790325201489237985, guid: 8ec4a3e59fe27b148af42d59d1267c74, type: 3}
   - {fileID: 1163899032141010448, guid: 5ae6fa85798346547802886609ef1d69, type: 3}
-  - {fileID: 4924067322461387404, guid: 5d4d3516c09708d4c9175e3987329f7c, type: 3}
   - {fileID: 7537131238602586288, guid: da21476e1a16efe49a1097a91ae3f47b, type: 3}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -554,8 +554,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   spawnObject: {fileID: 0}
-  blockers: {fileID: 3443626255250016760, guid: df8e5e284fd16154f8312093c6310f81, type: 3}
+  blockers: {fileID: 5607043361291544720, guid: 5c32c9c43ab7c9044be6e9cac6ffafed, type: 3}
   randomSpawner: 0
+  enemySpawn: {fileID: 4924067322461387404, guid: 5d4d3516c09708d4c9175e3987329f7c, type: 3}
   areaToSpawnBlockers: []
   spawnBlocker: 0
   canISpawnSomething: 0
