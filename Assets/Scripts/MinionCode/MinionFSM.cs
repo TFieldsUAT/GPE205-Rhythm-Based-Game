@@ -5,15 +5,21 @@ using UnityEngine.Rendering;
 
 public class MinionFSM : MonoBehaviour
 {
+
     public string minionNane;
     public GameObject enemiesTarget;
     public float timeForMovement = 10;
     public float speedOfMovement = 1f;
     public int minionHp;
+    public int minionMaxHP;
     public float minionAttack;
     public int dmgAmount;
+    [SerializeField] int randomRoamSpot;
     public GameObject emotionText;
+    [SerializeField] Vector3 randomEnemyPOI;
     //Checks to see a few var with minions 
+
+    [SerializeField] bool attackingPlayer;
     [SerializeField] bool willMinionAttack;
     [SerializeField] MagicSO[] minionsMagic;
     [SerializeField] float timeTillDestroyed = 30;
@@ -29,6 +35,7 @@ public class MinionFSM : MonoBehaviour
     //Minions when first created changes states, This is temp for when i change the spawners 
     private void Awake()
     {
+       
         gameObject.transform.SetParent(null);
         minionsEmotionalState = minionsEmotionState.Scared+Random.Range(0,7);
         //Debug.Log(minionsEmotionalState);
@@ -36,11 +43,12 @@ public class MinionFSM : MonoBehaviour
     //allows the switch states machine to work
     private void Start()
     {
-
+        FreeRoam();
         emotionText.GetComponent<TextMeshProUGUI>().text = minionsEmotionalState.ToString();
         //Debug.Log(emotionText.GetComponent<TextMeshProUGUI>().text);
        MinionReactions((int)minionsEmotionalState);
         enemiesTarget = GameManager.instance.actors[0];
+        minionMaxHP = minionHp;
     }
     //count down minions time to get destroyed
     private void Update()
@@ -51,6 +59,7 @@ public class MinionFSM : MonoBehaviour
 
         if (timeForMovement < 0)
         {
+            SwitchMinionsBehavior();
             EnemyMoveTowards();
         }
 
@@ -151,7 +160,7 @@ public class MinionFSM : MonoBehaviour
     public void Happy()
     {
         timeTillDestroyed = +Random.Range(5, 20);
-        willMinionAttack = true;
+        willMinionAttack = false;
         
     }
 
@@ -196,23 +205,46 @@ public class MinionFSM : MonoBehaviour
 
     private void EnemyMoveTowards()
     {
+        
 
-
-       if(transform.position != enemiesTarget.transform.position && willMinionAttack)
+       if(transform.position != enemiesTarget.transform.position && willMinionAttack && !attackingPlayer)
         {
             transform.position = Vector3.MoveTowards(transform.position, enemiesTarget.transform.position, speedOfMovement);
-            //transform.position = new Vector3( transform.position.x +1,transform.position.y,transform.position.z);
             timeForMovement = 10;
-        }else if(transform.position != enemiesTarget.transform.position && !willMinionAttack)
+        }
+       else if(attackingPlayer)
         {
-            transform.position = Vector3.MoveTowards(transform.position, -enemiesTarget.transform.position, speedOfMovement);
-            //transform.position = new Vector3( transform.position.x +1,transform.position.y,transform.position.z);
+            dmgAmount = (int)minionAttack + Random.Range(0, 3);
+            //Player Takes Dmg
+            GameManager.instance.DmgtoPlayer(dmgAmount);
             timeForMovement = 10;
+        }
+       // Makes The enemy go to points it sets up on the map
+        else if(!willMinionAttack && transform.position != randomEnemyPOI)
+        {
+        
+            transform.position = Vector3.MoveTowards(transform.position, randomEnemyPOI, speedOfMovement);
+           
+            timeForMovement = 10;
+
+
+        }else if(!willMinionAttack && transform.position == randomEnemyPOI)
+        {
+            FreeRoam();
 
         }
       
 
     }    
+
+
+    private void FreeRoam()
+    {
+     randomRoamSpot =  Random.Range(0, GameManager.instance.groundTiles.Count);
+     randomEnemyPOI = GameManager.instance.groundTiles[randomRoamSpot];
+    
+
+    }
 
 
 
@@ -246,10 +278,41 @@ public class MinionFSM : MonoBehaviour
 
 
 
+    public void SwitchMinionsBehavior()
+    {
+        if(minionHp < minionMaxHP)
+        {
+            
+            willMinionAttack = true;
+        }
+
+    }
+
+
+
     public void DmgMinion(int Dmgs)
     {
 
         minionHp -= Dmgs;
+    }
+
+
+
+    public void GettingReadyToAttack()
+    {
+        if(willMinionAttack) {
+            attackingPlayer = true;
+        }
+
+    }
+
+    public void FindingPlayer()
+    {
+        if (willMinionAttack)
+        {
+            attackingPlayer = false;
+        }
+
     }
 
 }

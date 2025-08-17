@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    [Header("Battle stuff")]
     public static GameManager instance;
     [SerializeField] Transform bossPOS;
     [SerializeField] GameObject bossSpawn;

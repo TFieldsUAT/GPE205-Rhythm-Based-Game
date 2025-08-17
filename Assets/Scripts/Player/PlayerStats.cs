@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+
+    
     // hiddden Stats for Keeping track of characters stats, so that stats do no become negative numbers in game.
     int basefullHP;
     int basecurrentHP;
@@ -32,6 +34,8 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
       gameObject.transform.position = GameManager.instance.groundTiles[GameManager.instance.randomSpawnPlace];
+        pcurrentHP = 20;
+        pfullHP = pcurrentHP;
     }
 
     // Update is called once per frame
@@ -50,4 +54,6 @@ public class PlayerStats : MonoBehaviour
         return statMathGenNumber;
     }
 
+
+   
 }

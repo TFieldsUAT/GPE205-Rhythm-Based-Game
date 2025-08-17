@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 4924067322461387404}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.18496, y: -0.23167, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -160,9 +160,13 @@ MonoBehaviour:
   timeForMovement: 10
   speedOfMovement: 1
   minionHp: 0
+  minionMaxHP: 0
   minionAttack: 0
   dmgAmount: 0
+  randomRoamSpot: 0
   emotionText: {fileID: 9136104849043603247}
+  randomEnemyPOI: {x: 0, y: 0, z: 0}
+  attackingPlayer: 0
   willMinionAttack: 0
   minionsMagic: []
   timeTillDestroyed: 30

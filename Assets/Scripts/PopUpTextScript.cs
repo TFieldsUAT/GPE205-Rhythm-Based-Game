@@ -35,7 +35,7 @@ public class PopUpTextScript : MonoBehaviour
             pWeaponDmg.GetComponentInParent<TempWeaponDmg>().RandomDmgAmount();
             dmgToTake = pWeaponDmg.GetComponentInParent<TempWeaponDmg>().dmgAmount;
         }
-        else
+        else if (other.gameObject.layer == 10)
         {
             Debug.Log(other);
 
@@ -53,6 +53,12 @@ public class PopUpTextScript : MonoBehaviour
                 dmgToTake = 0;
             }
         }
+        else if (other.gameObject.layer == 10)
+        {
+            Debug.Log("FoundPlayer");
+            transform.gameObject.GetComponentInParent<MinionFSM>().GettingReadyToAttack();
+
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -64,6 +70,11 @@ public class PopUpTextScript : MonoBehaviour
             //Hurt The minion
             transform.gameObject.GetComponentInParent<MinionFSM>().DmgMinion(dmgTaken);
             DisplayDmg(dmgTaken);
+        }
+        else if (other.gameObject.layer == 10)
+        {
+            Debug.Log("PlayerLost");
+            transform.gameObject.GetComponentInParent<MinionFSM>().FindingPlayer();
         }
     }
 
