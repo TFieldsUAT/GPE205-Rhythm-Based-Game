@@ -1381,7 +1381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetingMask:
     serializedVersion: 2
-    m_Bits: 524864
+    m_Bits: 590400
   headTargetingDis: 1000
   targetHitTransform: {fileID: 0}
   multiTargetTransform: []

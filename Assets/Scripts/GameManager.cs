@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("PlayerSpawnHub")]
+    [SerializeField] GameObject mainMenuArea;
+    [SerializeField] public  GameObject mainMenuAreaTransform;
+
 
     [Header("Battle stuff")]
     public static GameManager instance;
@@ -70,33 +74,40 @@ public class GameManager : MonoBehaviour
             //If game manager exist It will destory it. If its not itself
             Destroy(gameObject);
         }
+
+        battleStart = false;
+
+        CreateHub();
+        
+
     }
+
+
+   
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        maxNumberOfEnemies = Random.Range(0,4)+levelInPlay;
-        battleStart = true;
-        tileTotal = tileX * tileY;
-        LevelTileSpawner();
-        CreatePlayer();
-        SetBound();
-      
+        playerSpawnPosition = Instantiate(xrPlayer);
+        actors.Add(playerSpawnPosition);
+        PlacePlayerAtHub();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (battleStart == true && loopBreaker < 30)
-        {
-            SetEnemies();
-        }
-        else if (loopBreaker >= 30)
-        {
-            IsTheBattleOver();
-        }
+            if (battleStart == true && loopBreaker < 30)
+            {
+                SetEnemies();
+            }
+            else if (loopBreaker >= 30)
+            {
+                IsTheBattleOver();
+            }
+        
     }
 
 
@@ -165,19 +176,22 @@ public class GameManager : MonoBehaviour
         randomSpawnPlace = Random.Range(0, groundTiles.Count);
         //playerSpawn.position = playersSpawnPOS[randomSpawnPlace];
 
-        Debug.Log("Random pos choosen was: " + randomSpawnPlace + groundTiles[randomSpawnPlace]);
+       // Debug.Log("Random pos choosen was: " + randomSpawnPlace + groundTiles[randomSpawnPlace]);
         //Changes where the player Spawn
 
         //Makes it so enemies can't spawn here.
         setGround[randomSpawnPlace].GetComponent<tileSpawner>().DestroySpawnObject();
         setGround[randomSpawnPlace].GetComponent<tileSpawner>().canISpawnSomething = false;
 
+
+
+        playerSpawnPosition.transform.position = groundTiles[randomSpawnPlace];
         //make player spawn
-        playerSpawnPosition = Instantiate(xrPlayer);
-        actors.Add(playerSpawnPosition);
+        /* playerSpawnPosition = Instantiate(xrPlayer);
+         actors.Add(playerSpawnPosition);*/
         // Instantiate(tempWeapon, playerSpawnPosition.transform);
-       
-       
+
+
 
     }
 
@@ -188,6 +202,14 @@ public class GameManager : MonoBehaviour
         {
             
             t.GetComponent<tileSpawner>().SeeWhatsAroundMe();
+        }
+    }
+
+    private void DestroyBlockersReset()
+    {
+        foreach (GameObject t in setGround)
+        {
+            t.GetComponent<tileSpawner>().DestroyBlockers();
         }
     }
 
@@ -220,15 +242,28 @@ public class GameManager : MonoBehaviour
 
     private void IsTheBattleOver()
     {
-        if (actors[0].GetComponent<PlayerStats>().pcurrentHP < 0) 
+        if (actors[0].GetComponent<PlayerStats>().pcurrentHP < 0 && battleStart==true) 
         {
             Debug.Log("Player Loses");
             battleStart = false;
         }
-        else if(spawnEnemies.Count == 0)
+        else if(spawnEnemies.Count == 0 && battleStart == true)
         {
-
+            DestroyBlockersReset();
+            for(int i = 0; i < setGround.Count; i++)
+            {
+               Destroy(setGround[i]);
+            }
+            levelTiles = 0;
+            loopBreaker = 0;
+            amountOfEnemies = 0;
+            groundTiles.Clear();
+            setGround.Clear();
+            spawnEnemies.Clear();
+            ShowHub();
+            PlacePlayerAtHub();
             Debug.Log("Player Wins");
+            levelInPlay++;
             battleStart = false;
         }
 
@@ -242,6 +277,52 @@ public class GameManager : MonoBehaviour
     {
         actors[0].GetComponent<PlayerStats>().pcurrentHP -= dmgtoPlayer;
         Debug.Log("Player Has Taken:" + dmgtoPlayer + " Player Has: " + actors[0].GetComponent<PlayerStats>().pcurrentHP + "  Hp Left ");
+    }
+
+
+   public void BattleBegin()
+    {
+        HideHub();
+        maxNumberOfEnemies = Random.Range(0, 4) + levelInPlay;
+        tileTotal = tileX * tileY;
+        LevelTileSpawner();
+        CreatePlayer();
+        SetBound();
+        loopBreaker = 0;
+        battleStart = true;
+    }
+
+
+
+
+    private void CreateHub()
+    {
+       mainMenuAreaTransform = Instantiate(mainMenuArea);
+
+    }
+
+
+    private void PlacePlayerAtHub()
+    {
+
+        playerSpawnPosition.GetComponent<PlayerStats>().SpawnPlayerBackAtHub();      
+
+    }
+
+
+
+    private void ShowHub()
+    {
+        mainMenuAreaTransform.SetActive(true);
+
+    }
+
+
+
+    private void HideHub()
+    {
+        mainMenuAreaTransform.SetActive(false);
+
     }
    
 

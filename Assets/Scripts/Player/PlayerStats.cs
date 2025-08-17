@@ -35,7 +35,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      gameObject.transform.position = GameManager.instance.groundTiles[GameManager.instance.randomSpawnPlace];
+      //gameObject.transform.position = GameManager.instance.groundTiles[GameManager.instance.randomSpawnPlace];
         pcurrentHP = 5;
         pfullHP = pcurrentHP;
     }
@@ -69,6 +69,12 @@ public class PlayerStats : MonoBehaviour
 
     }
 
+
+    public void SpawnPlayerBackAtHub()
+    {
+        gameObject.transform.position = GameManager.instance.mainMenuAreaTransform.GetComponent<mainMenuScript>().playerSpawnArea.transform.position;
+        gameObject.transform.parent = null;
+    }
 
    
 }

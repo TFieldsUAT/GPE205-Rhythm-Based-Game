@@ -11,6 +11,8 @@ public class tileSpawner : MonoBehaviour
     [SerializeField] int randomSpawner;
     [SerializeField] GameObject enemySpawn;
     [SerializeField]  List<Vector3> areaToSpawnBlockers;
+
+    [SerializeField] List<GameObject> blockersSpawned;
     [SerializeField]  int spawnBlocker;
     public bool canISpawnSomething;
 
@@ -141,29 +143,38 @@ public class tileSpawner : MonoBehaviour
 
         if (!lHit)
         {
-            Instantiate(blockers);
+          blockersSpawned.Add(Instantiate(blockers));
             blockers.transform.position = gameObject.transform.position + Vector3.left;
             Debug.Log("Nothing Is left of me");
         }
         if (!rHit)
         {
             Debug.Log("Nothing Is Right of me");
-            Instantiate(blockers);
+            blockersSpawned.Add(Instantiate(blockers));
             blockers.transform.position = gameObject.transform.position + Vector3.right;
         }
         if(!fHit)
         {
-            Instantiate(blockers);
+            blockersSpawned.Add(Instantiate(blockers));
             blockers.transform.position = gameObject.transform.position + Vector3.forward;
             Debug.Log("Nothing Is forward of me");
         }
         if (!bHit)
         {
-            Instantiate(blockers);
+            blockersSpawned.Add(Instantiate(blockers));
             blockers.transform.position = gameObject.transform.position + Vector3.back;
             Debug.Log("Nothing Is Back of me");
         }
 
+
+    }
+
+    public void DestroyBlockers()
+    {
+      for (int i = 0; i < blockersSpawned.Count; ++i)
+        {
+            Destroy(blockersSpawned[i]);
+        }
 
     }
 
