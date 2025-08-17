@@ -1,8 +1,9 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-
+    
     
     // hiddden Stats for Keeping track of characters stats, so that stats do no become negative numbers in game.
     int basefullHP;
@@ -16,7 +17,8 @@ public class PlayerStats : MonoBehaviour
 
     // these stats are use for anything to do with game or character.
     [Header("Main public Stats")]
-
+    public GameObject displayHP;
+    public GameObject hpText;
     public int pfullHP;
     public int pcurrentHP;
     public int pSTR;
@@ -34,14 +36,14 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
       gameObject.transform.position = GameManager.instance.groundTiles[GameManager.instance.randomSpawnPlace];
-        pcurrentHP = 20;
+        pcurrentHP = 5;
         pfullHP = pcurrentHP;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        hpText.GetComponent<TextMeshProUGUI>().text = pcurrentHP.ToString();
     }
     // allows stats To be compared for rolls later on in the game
     public int statGenerator(int statComparing1, int statComparing2)
@@ -52,6 +54,19 @@ public class PlayerStats : MonoBehaviour
 
 
         return statMathGenNumber;
+    }
+
+
+
+    public void ActiveDisplay()
+    {
+        if(displayHP.activeSelf == false) {
+        displayHP.SetActive(true);
+        }
+        else {
+            displayHP.SetActive(false);
+        }
+
     }
 
 

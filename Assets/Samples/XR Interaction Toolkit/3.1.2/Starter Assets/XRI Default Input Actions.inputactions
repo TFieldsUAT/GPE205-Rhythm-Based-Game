@@ -2092,6 +2092,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "PrimaryButton",
+                    "type": "Button",
+                    "id": "e7b29390-cd14-479e-b6c0-2a5e3530a2f0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "SecondaryButton",
                     "type": "Button",
                     "id": "cb2e45c1-990a-4bac-af4b-b071ecd1c4ed",
@@ -2440,6 +2449,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SecondaryButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7f4d8f64-f648-4b6d-b872-bd05ea11077a",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrimaryButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

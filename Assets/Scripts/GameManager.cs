@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Enemies that can Spawn")]
 
-    [SerializeField] List<GameObject> spawnEnemies;
+    public List<GameObject> spawnEnemies;
 
 
     [Header ("Player And Spawnable Places")]
@@ -88,12 +88,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
-        if(battleStart == true && loopBreaker < 30)
+
+        if (battleStart == true && loopBreaker < 30)
         {
             SetEnemies();
         }
-
+        else if (loopBreaker >= 30)
+        {
+            IsTheBattleOver();
+        }
     }
 
 
@@ -156,29 +159,6 @@ public class GameManager : MonoBehaviour
 
 
 
-    //spwans The big boss In a Area
-    /* public void SpawnBigBoss()
-     {
-         spawnBossEnemy = true;
-         randomBossSpawned = Random.Range(0, spawnableBosses.Count);
-        bossSpawn = Instantiate(spawnableBosses[randomBossSpawned],bossPOS);
-
-
-
-     }*/
-
-
-    //damgages The the boss
-    /*public void DmgBoss(int dmgtoBoss)
-    {
-        bossSpawn.GetComponent<BossFSM>().bossHP -= dmgtoBoss;
-        Debug.Log("Boss Has Taken:" + dmgtoBoss + " Boss Has: " + bossSpawn.GetComponent<BossFSM>().bossHP + "  Hp Left ");
-    }*/
-
-
-    // Damages the player
-
-
     private void CreatePlayer()
     {
         //Create player and set the players POS
@@ -235,6 +215,24 @@ public class GameManager : MonoBehaviour
                 return;
             }
         
+    }
+
+
+    private void IsTheBattleOver()
+    {
+        if (actors[0].GetComponent<PlayerStats>().pcurrentHP < 0) 
+        {
+            Debug.Log("Player Loses");
+            battleStart = false;
+        }
+        else if(spawnEnemies.Count == 0)
+        {
+
+            Debug.Log("Player Wins");
+            battleStart = false;
+        }
+
+
     }
 
 

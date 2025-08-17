@@ -24,7 +24,7 @@ public class PopUpTextScript : MonoBehaviour
 
 
     }
-
+    // If either The weapon layer or the Player's DMG layer hit the enemy it does certain code on the enemy or weapon
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 6)
@@ -55,7 +55,7 @@ public class PopUpTextScript : MonoBehaviour
         }
         else if (other.gameObject.layer == 10)
         {
-            Debug.Log("FoundPlayer");
+            Debug.Log("Player Is in Attack area");
             transform.gameObject.GetComponentInParent<MinionFSM>().GettingReadyToAttack();
 
         }
@@ -73,7 +73,7 @@ public class PopUpTextScript : MonoBehaviour
         }
         else if (other.gameObject.layer == 10)
         {
-            Debug.Log("PlayerLost");
+            Debug.Log("Player move out of Attack area");
             transform.gameObject.GetComponentInParent<MinionFSM>().FindingPlayer();
         }
     }
