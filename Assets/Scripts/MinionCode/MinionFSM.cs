@@ -9,6 +9,7 @@ public class MinionFSM : MonoBehaviour
     public string minionNane;
     public GameObject enemiesTarget;
     public float timeForMovement = 10;
+    public float maxMovement;
     public float speedOfMovement = 1f;
     public int minionHp;
     public int minionMaxHP;
@@ -53,8 +54,13 @@ public class MinionFSM : MonoBehaviour
     //count down minions time to get destroyed
     private void Update()
     {
-       
-     
+
+        if (GameManager.instance.playerLost)
+        {
+            MinionSelfDestruct();
+            Destroy(gameObject);
+        }
+
         timeForMovement -= Time.deltaTime;
 
         if (timeForMovement < 0)
@@ -144,14 +150,14 @@ public class MinionFSM : MonoBehaviour
     public void Scared()
     { 
         
-        timeTillDestroyed =+ Random.Range(0, 20);
+       maxMovement =+ Random.Range(0, 20);
         willMinionAttack = false;
     }
 
     public void Aggresive()
     {
 
-        timeTillDestroyed = +Random.Range(1, 7);
+        maxMovement = +Random.Range(1, 7);
         willMinionAttack = true;
       
     }
@@ -159,7 +165,7 @@ public class MinionFSM : MonoBehaviour
 
     public void Happy()
     {
-        timeTillDestroyed = +Random.Range(5, 20);
+        maxMovement = +Random.Range(5, 20);
         willMinionAttack = false;
         
     }
@@ -167,14 +173,14 @@ public class MinionFSM : MonoBehaviour
 
     public void Cocky()
     {
-        timeTillDestroyed = +Random.Range(12, 40);
+        maxMovement = +Random.Range(12, 40);
         willMinionAttack = false;
     }
 
 
     public void Detemind()
     {
-        timeTillDestroyed = +Random.Range(2, 10);
+        maxMovement = +Random.Range(2, 10);
         willMinionAttack = true;
        
 
@@ -182,14 +188,14 @@ public class MinionFSM : MonoBehaviour
 
     public void Confused()
     {
-        timeTillDestroyed = +Random.Range(9, 34);
+        maxMovement = +Random.Range(9, 34);
         willMinionAttack = false;
     }
 
 
     public void Desperate()
     {
-        timeTillDestroyed = +Random.Range(2, 10);
+        maxMovement = +Random.Range(2, 10);
         willMinionAttack = true;
        
     }
@@ -197,7 +203,7 @@ public class MinionFSM : MonoBehaviour
 
     public void NonLiving()
     {
-        timeTillDestroyed = +Random.Range(18, 60);
+        maxMovement = +Random.Range(18, 60);
         willMinionAttack = true;
     }
 
@@ -210,14 +216,14 @@ public class MinionFSM : MonoBehaviour
        if(transform.position != enemiesTarget.transform.position && willMinionAttack && !attackingPlayer)
         {
             transform.position = Vector3.MoveTowards(transform.position, enemiesTarget.transform.position, speedOfMovement);
-            timeForMovement = 10;
+            timeForMovement = maxMovement;
         }
        else if(attackingPlayer)
         {
             dmgAmount = (int)minionAttack + Random.Range(0, 3);
             //Player Takes Dmg
             GameManager.instance.DmgtoPlayer(dmgAmount);
-            timeForMovement = 10;
+            timeForMovement = maxMovement;
         }
        // Makes The enemy go to points it sets up on the map
         else if(!willMinionAttack && transform.position != randomEnemyPOI)
@@ -225,7 +231,7 @@ public class MinionFSM : MonoBehaviour
         
             transform.position = Vector3.MoveTowards(transform.position, randomEnemyPOI, speedOfMovement);
            
-            timeForMovement = 10;
+            timeForMovement = maxMovement;
 
 
         }else if(!willMinionAttack && transform.position == randomEnemyPOI)
@@ -259,6 +265,7 @@ public class MinionFSM : MonoBehaviour
             {
                 if(gameObject.transform == GameManager.instance.spawnEnemies[i].transform)
                 {
+                    GameManager.instance.enemiesDefeated++;
                     GameManager.instance.spawnEnemies.Remove(GameManager.instance.spawnEnemies[i]);
                     Destroy(gameObject); return;
                 }
@@ -270,6 +277,20 @@ public class MinionFSM : MonoBehaviour
         }
     }
 
+
+
+    public void MinionSelfDestruct()
+    {
+        for (int i = 0; i < GameManager.instance.spawnEnemies.Count; i++)
+        {
+            if (gameObject.transform == GameManager.instance.spawnEnemies[i].transform)
+            {
+                GameManager.instance.enemiesDefeated++;
+                GameManager.instance.spawnEnemies.Remove(GameManager.instance.spawnEnemies[i]);
+                Destroy(gameObject); return;
+            }
+        }
+    }
 
 
     public void SwitchMinionsBehavior()

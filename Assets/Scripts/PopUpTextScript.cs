@@ -68,6 +68,7 @@ public class PopUpTextScript : MonoBehaviour
         {
             dmgTaken = Mathf.RoundToInt(dmgToTake);
             //Hurt The minion
+            other.gameObject.GetComponentInParent<AudioSource>().Play();
             transform.gameObject.GetComponentInParent<MinionFSM>().DmgMinion(dmgTaken);
             DisplayDmg(dmgTaken);
         }

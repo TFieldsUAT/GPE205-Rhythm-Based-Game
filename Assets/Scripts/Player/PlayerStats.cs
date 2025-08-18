@@ -19,6 +19,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Main public Stats")]
     public GameObject displayHP;
     public GameObject hpText;
+    public GameObject EnemiesLeft;
     public int pfullHP;
     public int pcurrentHP;
     public int pSTR;
@@ -44,6 +45,7 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         hpText.GetComponent<TextMeshProUGUI>().text = pcurrentHP.ToString();
+        EnemiesLeft.GetComponent<TextMeshProUGUI>().text = GameManager.instance.spawnEnemies.Count.ToString();
     }
     // allows stats To be compared for rolls later on in the game
     public int statGenerator(int statComparing1, int statComparing2)

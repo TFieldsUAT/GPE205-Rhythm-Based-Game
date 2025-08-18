@@ -30,8 +30,8 @@ public class Chest : MonoBehaviour
         //Allows the ablilty to place an item in the players inv
         if (grabItem)
         {
-         placeToPlaceItem =  GameManager.instance.actors[0].GetComponent<PlayerStats>().playerInv;
-
+            gameObject.GetComponent<AudioSource>().Play();
+            placeToPlaceItem =  GameManager.instance.actors[0].GetComponent<PlayerStats>().playerInv;
            weaponToDetatch = Instantiate(itemsAvailable[randomItemPicker], placeToPlaceItem.transform);
             weaponToDetatch.transform.SetParent(null);
             Destroy(gameObject);

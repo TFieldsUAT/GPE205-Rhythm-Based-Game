@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Enemy Caculator")]
     public int levelInPlay = 1;
+    public int enemiesDefeated;
     public int maxNumberOfEnemies;
     public int amountOfEnemies;
     public int loopBreaker = 0;
@@ -42,7 +44,7 @@ public class GameManager : MonoBehaviour
     public int foundPTargetName = 0;
     public int foundETargetName = 0;
     private float levelTiles;
-
+    public bool playerLost;
     public bool spawnBossEnemy;
 
     public bool battleStart;
@@ -60,6 +62,15 @@ public class GameManager : MonoBehaviour
     public List <Vector3> groundTiles;
     public List <GameObject> setGround;
 
+
+    [Header("Audio sources")]
+    [SerializeField] GameObject musicController;
+    public GameObject musicMaker;
+    [SerializeField] private AudioSource audioSource;
+    public List <AudioResource> audioSourcesToPlay;
+
+
+
     private void Awake()
     {
         if (instance == null)
@@ -74,7 +85,8 @@ public class GameManager : MonoBehaviour
             //If game manager exist It will destory it. If its not itself
             Destroy(gameObject);
         }
-
+       musicMaker = Instantiate(musicController);
+        audioSource = GetComponent<AudioSource>();
         battleStart = false;
 
         CreateHub();
@@ -174,9 +186,9 @@ public class GameManager : MonoBehaviour
     {
         //Create player and set the players POS
         randomSpawnPlace = Random.Range(0, groundTiles.Count);
-        //playerSpawn.position = playersSpawnPOS[randomSpawnPlace];
+       
 
-       // Debug.Log("Random pos choosen was: " + randomSpawnPlace + groundTiles[randomSpawnPlace]);
+      
         //Changes where the player Spawn
 
         //Makes it so enemies can't spawn here.
@@ -185,10 +197,9 @@ public class GameManager : MonoBehaviour
 
 
 
-        playerSpawnPosition.transform.position = groundTiles[randomSpawnPlace];
+        playerSpawnPosition.transform.position = new Vector3( groundTiles[randomSpawnPlace].x, groundTiles[randomSpawnPlace].y+1, groundTiles[randomSpawnPlace].z);
         //make player spawn
-        /* playerSpawnPosition = Instantiate(xrPlayer);
-         actors.Add(playerSpawnPosition);*/
+       
         // Instantiate(tempWeapon, playerSpawnPosition.transform);
 
 
@@ -242,29 +253,29 @@ public class GameManager : MonoBehaviour
 
     private void IsTheBattleOver()
     {
-        if (actors[0].GetComponent<PlayerStats>().pcurrentHP < 0 && battleStart==true) 
+        if (actors[0].GetComponent<PlayerStats>().pcurrentHP <= 0 && battleStart==true) 
         {
+            audioSource.resource = audioSourcesToPlay[1];
+            audioSource.Play();
             Debug.Log("Player Loses");
-            battleStart = false;
+            playerLost = true;
+
+            //Get rid of all minions on player death
+            for(int i = 0;i < spawnEnemies.Count;i++)
+            {
+                spawnEnemies[i].GetComponent<MinionFSM>().MinionSelfDestruct();
+
+            }
+
+            Reset();
         }
         else if(spawnEnemies.Count == 0 && battleStart == true)
         {
-            DestroyBlockersReset();
-            for(int i = 0; i < setGround.Count; i++)
-            {
-               Destroy(setGround[i]);
-            }
-            levelTiles = 0;
-            loopBreaker = 0;
-            amountOfEnemies = 0;
-            groundTiles.Clear();
-            setGround.Clear();
-            spawnEnemies.Clear();
-            ShowHub();
-            PlacePlayerAtHub();
-            Debug.Log("Player Wins");
+         audioSource.resource = audioSourcesToPlay[0];
+         audioSource.Play();
+            
             levelInPlay++;
-            battleStart = false;
+            Reset();
         }
 
 
@@ -275,6 +286,7 @@ public class GameManager : MonoBehaviour
 
     public void DmgtoPlayer(int dmgtoPlayer)
     {
+        actors[0].GetComponent<AudioSource>().Play();
         actors[0].GetComponent<PlayerStats>().pcurrentHP -= dmgtoPlayer;
         Debug.Log("Player Has Taken:" + dmgtoPlayer + " Player Has: " + actors[0].GetComponent<PlayerStats>().pcurrentHP + "  Hp Left ");
     }
@@ -282,6 +294,10 @@ public class GameManager : MonoBehaviour
 
    public void BattleBegin()
     {
+        if(playerLost)
+        {
+            enemiesDefeated = 0;
+        }
         HideHub();
         maxNumberOfEnemies = Random.Range(0, 4) + levelInPlay;
         tileTotal = tileX * tileY;
@@ -324,6 +340,27 @@ public class GameManager : MonoBehaviour
         mainMenuAreaTransform.SetActive(false);
 
     }
-   
+
+
+
+    public void Reset()
+    {
+        DestroyBlockersReset();
+        for (int i = 0; i < setGround.Count; i++)
+        {
+            Destroy(setGround[i]);
+        }
+        levelTiles = 0;
+        loopBreaker = 0;
+        amountOfEnemies = 0;
+        groundTiles.Clear();
+        setGround.Clear();
+        spawnEnemies.Clear();
+        ShowHub();
+        PlacePlayerAtHub();
+        Debug.Log("Player Wins");
+       
+        battleStart = false;
+    }
 
 }
