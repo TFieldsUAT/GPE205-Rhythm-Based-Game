@@ -569,10 +569,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsAvailable:
-  - {fileID: 8608052230642145627, guid: 3207a9a3457ad5445a06c2b6b6f5df03, type: 3}
-  - {fileID: 2211985201688600890, guid: 00307d28db4b37649a6e8d5c6716e921, type: 3}
-  - {fileID: 9012399101446307448, guid: c7337fcc6e44420408e9312179a5cbdc, type: 3}
   - {fileID: 7372764372503439352, guid: dfdbd9afe8d24cb4094bb5200fba690d, type: 3}
+  - {fileID: 2117985924564952089, guid: 9529bcd5c4d3a86459e88023d2fb6667, type: 3}
   randomItemPicker: 0
   placeToPlaceItem: {fileID: 0}
   playerLayerMask:

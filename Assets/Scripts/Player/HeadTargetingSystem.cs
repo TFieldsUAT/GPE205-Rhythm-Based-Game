@@ -11,6 +11,8 @@ public class HeadTargetingSystem : MonoBehaviour
     public List<Transform> multiTargetTransform;
     [SerializeField] InputActionReference B_button;
     [SerializeField] InputActionReference A_button;
+    [SerializeField] InputActionReference Y_button;
+    [SerializeField] InputActionReference X_button;
     [SerializeField] Transform vrCamera;
     [SerializeField] int foundTargetName;
     // Start is called before the first frame update
@@ -28,6 +30,13 @@ public class HeadTargetingSystem : MonoBehaviour
             Debug.Log("A was pressed");
             GetComponent<PlayerStats>().ActiveDisplay();
         }
+
+        if (Y_button.action.WasPressedThisFrame())
+        {
+            Debug.Log("Y was pressed");
+            GetComponent<PlayerStats>().SelectedWeapon();
+        }
+
 
         // this is for combat when its added
         if (B_button.action.WasPressedThisFrame())

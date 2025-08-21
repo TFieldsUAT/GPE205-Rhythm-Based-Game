@@ -29,7 +29,9 @@ public class PlayerStats : MonoBehaviour
     public int pWIS;
     public int pInt;
 
+    public bool weaponCalling;
     public GameObject playerInv;
+    public GameObject playerWeapon;
 
     public int statMathGenNumber;
 
@@ -78,5 +80,22 @@ public class PlayerStats : MonoBehaviour
         gameObject.transform.parent = null;
     }
 
-   
+
+    public void Reset()
+    {
+        pcurrentHP = 5;
+        pfullHP = pcurrentHP;
+    }
+
+
+
+
+
+
+    public void SelectedWeapon()
+    {
+        weaponCalling = true;
+
+    }
+
 }

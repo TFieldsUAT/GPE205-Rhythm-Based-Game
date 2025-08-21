@@ -285,7 +285,7 @@ public class MinionFSM : MonoBehaviour
         {
             if (gameObject.transform == GameManager.instance.spawnEnemies[i].transform)
             {
-                GameManager.instance.enemiesDefeated++;
+               
                 GameManager.instance.spawnEnemies.Remove(GameManager.instance.spawnEnemies[i]);
                 Destroy(gameObject); return;
             }

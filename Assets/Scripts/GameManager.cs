@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Player Stuff")]
+    [SerializeField] WeaponStats weaponsCode;
     [SerializeField] GameObject tempWeapon;
     [SerializeField] GameObject xrPlayer;
     [Header("TileMap")]
@@ -296,7 +297,9 @@ public class GameManager : MonoBehaviour
     {
         if(playerLost)
         {
+            playerSpawnPosition.GetComponent<PlayerStats>().Reset();
             enemiesDefeated = 0;
+            playerLost = false;
         }
         HideHub();
         maxNumberOfEnemies = Random.Range(0, 4) + levelInPlay;
@@ -361,6 +364,23 @@ public class GameManager : MonoBehaviour
         Debug.Log("Player Wins");
        
         battleStart = false;
+    }
+
+
+    public GameObject AddWeaponToPlayer(GameObject PlayerToAddWeapon)
+    {
+       
+        for (int i = 0; i < actors.Count; i++)
+        {
+            Debug.Log(actors[i].GetComponent<PlayerStats>().weaponCalling);
+
+            if (actors[i].GetComponent<PlayerStats>().weaponCalling == true)
+            {
+              PlayerToAddWeapon = actors[i].GetComponent<PlayerStats>().playerWeapon;
+            }
+        }
+         return PlayerToAddWeapon;
+
     }
 
 }

@@ -32,8 +32,8 @@ public class PopUpTextScript : MonoBehaviour
 
             //Checks to see if weapon hit The enemy
             pWeaponDmg = other.GetComponentInParent<Transform>().gameObject;
-            pWeaponDmg.GetComponentInParent<TempWeaponDmg>().RandomDmgAmount();
-            dmgToTake = pWeaponDmg.GetComponentInParent<TempWeaponDmg>().dmgAmount;
+            pWeaponDmg.GetComponentInParent<WeaponStats>().weaponsStats.RandomDmgAmount();
+            dmgToTake = pWeaponDmg.GetComponentInParent<WeaponStats>().weaponsStats.dmgAmount;
         }
         else if (other.gameObject.layer == 10)
         {

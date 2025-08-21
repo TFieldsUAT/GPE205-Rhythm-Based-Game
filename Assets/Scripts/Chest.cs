@@ -7,7 +7,7 @@ public class Chest : MonoBehaviour
     [SerializeField]  public int randomItemPicker;
     [SerializeField] GameObject placeToPlaceItem;
     [SerializeField] LayerMask playerLayerMask;
-    [SerializeField] GameObject weaponToDetatch;
+    [SerializeField] GameObject itemsToDetatch;
     [SerializeField] bool grabItem;
     private void Start()
     {
@@ -31,9 +31,10 @@ public class Chest : MonoBehaviour
         if (grabItem)
         {
             gameObject.GetComponent<AudioSource>().Play();
+
             placeToPlaceItem =  GameManager.instance.actors[0].GetComponent<PlayerStats>().playerInv;
-           weaponToDetatch = Instantiate(itemsAvailable[randomItemPicker], placeToPlaceItem.transform);
-            weaponToDetatch.transform.SetParent(null);
+            itemsToDetatch = Instantiate(itemsAvailable[randomItemPicker], placeToPlaceItem.transform);
+            itemsToDetatch.transform.SetParent(null);
             Destroy(gameObject);
         }
     }
