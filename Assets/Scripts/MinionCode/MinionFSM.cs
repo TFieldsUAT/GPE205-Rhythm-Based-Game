@@ -75,6 +75,16 @@ public class MinionFSM : MonoBehaviour
         {
             MinionDestroyed();
         }
+
+        if(willMinionAttack)
+        {
+            gameObject.transform.LookAt(enemiesTarget.transform);
+        }
+        else if(!willMinionAttack)
+        {
+            gameObject.transform.LookAt(randomEnemyPOI);
+        }
+        
     }
 
 

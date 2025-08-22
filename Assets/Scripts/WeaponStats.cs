@@ -31,7 +31,7 @@ public class WeaponStats : MonoBehaviour
             SelectWeapon();
         }
 
-        if (!weaponsStats.holdingWeapon && !weaponHostered && gameObject.transform.position != playerToAddedWeaponTo.transform.position && playerToAddedWeaponTo != null)
+        if (!weaponsStats.holdingWeapon && !weaponHostered && playerToAddedWeaponTo != null && gameObject.transform.position != playerToAddedWeaponTo.transform.position)
         {
             returnTime -= Time.deltaTime;
         }

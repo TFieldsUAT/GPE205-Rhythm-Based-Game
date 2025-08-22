@@ -9,7 +9,8 @@ public class tileSpawner : MonoBehaviour
     public GameObject spawnObject;
     [SerializeField] GameObject blockers;
     [SerializeField] int randomSpawner;
-    [SerializeField] GameObject enemySpawn;
+    [SerializeField] int randomNumberForEnemy;
+   [SerializeField] GameObject[] enemySpawn;
     [SerializeField]  List<Vector3> areaToSpawnBlockers;
 
     [SerializeField] List<GameObject> blockersSpawned;
@@ -181,7 +182,8 @@ public class tileSpawner : MonoBehaviour
 
     public void spawnEnemy()
     {
-        spawnObject = Instantiate(enemySpawn, spawnArea);
+        randomNumberForEnemy = Random.Range(0, enemySpawn.Length);
+        spawnObject = Instantiate(enemySpawn[randomNumberForEnemy], spawnArea);
 
 
     }

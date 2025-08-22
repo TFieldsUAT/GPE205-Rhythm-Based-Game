@@ -47,7 +47,7 @@ public class PopUpTextScript : MonoBehaviour
         if (other.gameObject.layer == 6)
         {
 
-            dmgToTake -= 0.1f * Time.deltaTime;
+            dmgToTake -= 1f * Time.deltaTime;
             if (dmgToTake < 0)
             {
                 dmgToTake = 0;

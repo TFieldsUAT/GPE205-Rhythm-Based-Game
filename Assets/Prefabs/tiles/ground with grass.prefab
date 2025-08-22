@@ -556,7 +556,10 @@ MonoBehaviour:
   spawnObject: {fileID: 0}
   blockers: {fileID: 5607043361291544720, guid: 5c32c9c43ab7c9044be6e9cac6ffafed, type: 3}
   randomSpawner: 0
-  enemySpawn: {fileID: 4924067322461387404, guid: 5d4d3516c09708d4c9175e3987329f7c, type: 3}
+  randomNumberForEnemy: 0
+  enemySpawn:
+  - {fileID: 4924067322461387404, guid: 5d4d3516c09708d4c9175e3987329f7c, type: 3}
+  - {fileID: 6388893429306139580, guid: 223f28a40c5f53d43a9b844c5c9eda07, type: 3}
   areaToSpawnBlockers: []
   blockersSpawned: []
   spawnBlocker: 0
