@@ -4591,6 +4591,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3357783192849788172}
     m_Modifications:
+    - target: {fileID: 516061564381686202, guid: 605428a0d3d72a649986b55083b3e3bb, type: 3}
+      propertyPath: weaponSpawner.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 516061564381686202, guid: 605428a0d3d72a649986b55083b3e3bb, type: 3}
+      propertyPath: weaponsToSpawn.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 516061564381686202, guid: 605428a0d3d72a649986b55083b3e3bb, type: 3}
+      propertyPath: 'weaponsToSpawn.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5857761234558863921, guid: 1a7cf03f7e6ed5445b24e5d92aad16b2, type: 3}
     - target: {fileID: 8771799141089358329, guid: 605428a0d3d72a649986b55083b3e3bb, type: 3}
       propertyPath: m_Name
       value: WeaponRackSpawner

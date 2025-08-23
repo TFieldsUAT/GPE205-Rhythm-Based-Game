@@ -14,8 +14,8 @@ public class WeaponRackSpawner : MonoBehaviour
 
         for (int i = 0; i < weaponSpawner.Length; i++)
         {
-           weaponSpawned = Instantiate(weaponsToSpawn[i], weaponSpawner[i].transform,false);
-           weaponSpawned.transform.parent = null;
+          Instantiate(weaponsToSpawn[i], weaponSpawner[i].transform,false);
+           // weaponsToSpawn[i].transform.parent = null;
         }
     }
 

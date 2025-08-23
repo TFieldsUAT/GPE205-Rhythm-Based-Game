@@ -150,8 +150,11 @@ public class MinionFSM : MonoBehaviour
 
 
         }
-      
 
+        if (maxMovement < 0)
+        {
+            maxMovement = 3;
+        }
 
     }
 
@@ -160,14 +163,15 @@ public class MinionFSM : MonoBehaviour
     public void Scared()
     { 
         
-       maxMovement =+ Random.Range(0, 20);
+       maxMovement =+ Random.Range(0, 20)-GameManager.instance.levelInPlay;
+      
         willMinionAttack = false;
     }
 
     public void Aggresive()
     {
 
-        maxMovement = +Random.Range(1, 7);
+        maxMovement = +Random.Range(1, 7)- GameManager.instance.levelInPlay;
         willMinionAttack = true;
       
     }
@@ -175,7 +179,7 @@ public class MinionFSM : MonoBehaviour
 
     public void Happy()
     {
-        maxMovement = +Random.Range(5, 20);
+        maxMovement = +Random.Range(5, 20) - GameManager.instance.levelInPlay;
         willMinionAttack = false;
         
     }
@@ -183,14 +187,14 @@ public class MinionFSM : MonoBehaviour
 
     public void Cocky()
     {
-        maxMovement = +Random.Range(12, 40);
+        maxMovement = +Random.Range(12, 40) - GameManager.instance.levelInPlay;
         willMinionAttack = false;
     }
 
 
     public void Detemind()
     {
-        maxMovement = +Random.Range(2, 10);
+        maxMovement = +Random.Range(2, 10) - GameManager.instance.levelInPlay;
         willMinionAttack = true;
        
 
@@ -198,14 +202,14 @@ public class MinionFSM : MonoBehaviour
 
     public void Confused()
     {
-        maxMovement = +Random.Range(9, 34);
+        maxMovement = +Random.Range(9, 34) - GameManager.instance.levelInPlay;
         willMinionAttack = false;
     }
 
 
     public void Desperate()
     {
-        maxMovement = +Random.Range(2, 10);
+        maxMovement = +Random.Range(2, 10) - GameManager.instance.levelInPlay;
         willMinionAttack = true;
        
     }
@@ -213,7 +217,7 @@ public class MinionFSM : MonoBehaviour
 
     public void NonLiving()
     {
-        maxMovement = +Random.Range(18, 60);
+        maxMovement = +Random.Range(18, 60) - GameManager.instance.levelInPlay;
         willMinionAttack = true;
     }
 
@@ -230,7 +234,7 @@ public class MinionFSM : MonoBehaviour
         }
        else if(attackingPlayer)
         {
-            dmgAmount = (int)minionAttack + Random.Range(0, 3);
+            dmgAmount = (int)minionAttack + Random.Range(0, 3) + GameManager.instance.levelInPlay;
             //Player Takes Dmg
             GameManager.instance.DmgtoPlayer(dmgAmount);
             timeForMovement = maxMovement;

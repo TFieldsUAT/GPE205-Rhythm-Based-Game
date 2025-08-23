@@ -274,7 +274,8 @@ public class GameManager : MonoBehaviour
         {
          audioSource.resource = audioSourcesToPlay[0];
          audioSource.Play();
-            
+            Debug.Log("Player Leveled UP");
+            playerSpawnPosition.GetComponent<PlayerStats>().LevelUp();
             levelInPlay++;
             Reset();
         }
@@ -299,6 +300,7 @@ public class GameManager : MonoBehaviour
         {
             playerSpawnPosition.GetComponent<PlayerStats>().Reset();
             enemiesDefeated = 0;
+            levelInPlay=1;
             playerLost = false;
         }
         HideHub();
@@ -361,7 +363,7 @@ public class GameManager : MonoBehaviour
         spawnEnemies.Clear();
         ShowHub();
         PlacePlayerAtHub();
-        Debug.Log("Player Wins");
+        
        
         battleStart = false;
     }

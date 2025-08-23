@@ -9,6 +9,10 @@ public class WeaponStats : MonoBehaviour
     [SerializeField]Collider _weaponCollider;
     [SerializeField] bool weaponHostered;
 
+    private void Start()
+    {
+        
+    }
 
 
     public void Holdingweapon()
@@ -40,7 +44,7 @@ public class WeaponStats : MonoBehaviour
         }
     }
 
-
+    //Finds the weapon to add to player
     public  void SelectWeapon()
     {
         if (playerToAddedWeaponTo == null)

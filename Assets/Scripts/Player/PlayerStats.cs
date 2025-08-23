@@ -1,3 +1,4 @@
+using ExternalPropertyAttributes;
 using TMPro;
 using UnityEngine;
 
@@ -16,10 +17,19 @@ public class PlayerStats : MonoBehaviour
     int baseINT;
 
     // these stats are use for anything to do with game or character.
-    [Header("Main public Stats")]
+    [Header("Main Text Stats")]
+    [HorizontalLine]
     public GameObject displayHP;
     public GameObject hpText;
     public GameObject EnemiesLeft;
+    public GameObject STR_TEXT;
+    public GameObject END_TEXT;
+    public GameObject DEX_TEXT;
+    public GameObject REF_TEXT;
+    public GameObject INT_TEXT;
+    public GameObject WIS_TEXT;
+
+    [Header("Main public Stats")]
     public int pfullHP;
     public int pcurrentHP;
     public int pSTR;
@@ -48,6 +58,14 @@ public class PlayerStats : MonoBehaviour
     {
         hpText.GetComponent<TextMeshProUGUI>().text = pcurrentHP.ToString();
         EnemiesLeft.GetComponent<TextMeshProUGUI>().text = GameManager.instance.spawnEnemies.Count.ToString();
+        
+        STR_TEXT.GetComponent<TextMeshProUGUI>().text = pSTR.ToString();
+        END_TEXT.GetComponent<TextMeshProUGUI>().text = pEND.ToString();
+        DEX_TEXT.GetComponent<TextMeshProUGUI>().text = pDEX.ToString();
+        REF_TEXT.GetComponent<TextMeshProUGUI>().text = pREF.ToString();
+        INT_TEXT.GetComponent<TextMeshProUGUI>().text = pINT.ToString();
+        WIS_TEXT.GetComponent<TextMeshProUGUI>().text = pWIS.ToString();
+
     }
     // allows stats To be compared for rolls later on in the game
     public int statGenerator(int statComparing1, int statComparing2)
@@ -105,6 +123,20 @@ public class PlayerStats : MonoBehaviour
     }
 
 
+
+    public void LevelUp()
+    {
+
+        pfullHP += Random.Range(pfullHP, pfullHP + 5);
+        pcurrentHP = pfullHP;
+        pSTR++;
+        pEND++;
+        pDEX++;
+        pREF++;
+        pINT++;
+        pWIS++;
+
+    }
     
    
 

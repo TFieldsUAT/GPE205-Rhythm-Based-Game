@@ -66,7 +66,7 @@ public class tileSpawner : MonoBehaviour
     {
 
 
-      
+       
 
 
     }
@@ -147,8 +147,8 @@ public class tileSpawner : MonoBehaviour
           blockersSpawned.Add(Instantiate(blockers));
             blockers.transform.position = gameObject.transform.position + Vector3.left;
             Debug.Log("Nothing Is left of me");
-            blockers.GetComponentInChildren<Transform>().transform.LookAt(GameManager.instance.actors[0].transform.position);
-            //blockers.transform.rotation = Quaternion.Euler(0, 90, 0);
+           blockers.GetComponentInChildren<Transform>().transform.LookAt(GameManager.instance.actors[0].transform.position);
+            
         }
          if (!rHit)
         {
@@ -156,7 +156,7 @@ public class tileSpawner : MonoBehaviour
             blockersSpawned.Add(Instantiate(blockers));
             blockers.transform.position = gameObject.transform.position + Vector3.right;
             blockers.GetComponentInChildren<Transform>().transform.LookAt(GameManager.instance.actors[0].transform.position);
-            // blockers.transform.rotation = Quaternion.Euler(0, 90, 0)*blockers.transform.rotation;
+       
         }
          if(!fHit)
         {
@@ -164,15 +164,15 @@ public class tileSpawner : MonoBehaviour
             blockers.transform.position = gameObject.transform.position + Vector3.forward;
             Debug.Log("Nothing Is forward of me");
             blockers.GetComponentInChildren<Transform>().transform.LookAt(GameManager.instance.actors[0].transform.position);
-            // blockers.transform.rotation = Quaternion.Euler(0, 90, 0) * blockers.transform.rotation;
+            
         }
          if (!bHit)
         {
             blockersSpawned.Add(Instantiate(blockers));
             blockers.transform.position = gameObject.transform.position + Vector3.back;
             Debug.Log("Nothing Is Back of me");
-            blockers.GetComponentInChildren<Transform>().transform.LookAt(GameManager.instance.actors[0].transform.position);
-            // blockers.transform.rotation = Quaternion.Euler(0, 90, 0) * blockers.transform.rotation;
+           blockers.GetComponentInChildren<Transform>().transform.LookAt(GameManager.instance.actors[0].transform.position);
+            
         }
 
 
