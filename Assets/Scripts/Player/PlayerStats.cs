@@ -13,7 +13,7 @@ public class PlayerStats : MonoBehaviour
     int baseDEX;
     int baseREF;
     int baseWIS;
-    int baseInt;
+    int baseINT;
 
     // these stats are use for anything to do with game or character.
     [Header("Main public Stats")]
@@ -27,7 +27,7 @@ public class PlayerStats : MonoBehaviour
     public int pDEX;
     public int pREF;
     public int pWIS;
-    public int pInt;
+    public int pINT;
 
     public bool weaponCalling;
     public GameObject playerInv;
@@ -85,6 +85,12 @@ public class PlayerStats : MonoBehaviour
     {
         pcurrentHP = 5;
         pfullHP = pcurrentHP;
+        pSTR = baseSTR;
+        pEND = baseEND;
+        pDEX = baseDEX;
+        pREF = baseREF;
+        pINT = baseINT;
+        pWIS = baseWIS;
     }
 
 
@@ -97,5 +103,9 @@ public class PlayerStats : MonoBehaviour
         weaponCalling = true;
 
     }
+
+
+    
+   
 
 }

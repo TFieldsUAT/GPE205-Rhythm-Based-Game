@@ -37,8 +37,9 @@ public class PopUpTextScript : MonoBehaviour
         }
         else if (other.gameObject.layer == 10)
         {
-            Debug.Log(other);
 
+            Debug.Log(other);
+            transform.gameObject.GetComponentInParent<MinionFSM>().SwitchMinionsBehavior();
         }
     }
 

@@ -97,7 +97,7 @@ public class MinionFSM : MonoBehaviour
 
 
                 //Scared reaction
-                minionHp = Random.Range(1, 6);
+                minionHp = Random.Range(1, 6)*GameManager.instance.levelInPlay;
                 Scared();
              
 
@@ -105,38 +105,38 @@ public class MinionFSM : MonoBehaviour
 
 
             case 1:
-                minionHp = Random.Range(1, 3);
+                minionHp = Random.Range(1, 3) * GameManager.instance.levelInPlay;
                 //Aggressive Reaction
                 Aggresive();
 
                 break;
 
             case 2:
-                minionHp = Random.Range(3, 8);
+                minionHp = Random.Range(3, 8) * GameManager.instance.levelInPlay;
                 //Happy Reaction
                 Happy();
                 break;
 
             case 3:
-                minionHp = Random.Range(1, 3);
+                minionHp = Random.Range(1, 3) * GameManager.instance.levelInPlay;
                 //Cocky Reaction
                 Cocky();
                 break;
 
             case 4:
-                minionHp = Random.Range(7, 13);
+                minionHp = Random.Range(7, 13) * GameManager.instance.levelInPlay;
                 //Determined Reaction
                 Detemind();
                 break;
             
              case 5:
-                minionHp = Random.Range(1, 6);
+                minionHp = Random.Range(1, 6) * GameManager.instance.levelInPlay;
                 //Confused reaction
                 Confused();
                 break;
 
              case 6:
-                minionHp = Random.Range(1, 19);
+                minionHp = Random.Range(1, 19) * GameManager.instance.levelInPlay;
                 //desperate reaction
                 Desperate();
 
@@ -310,6 +310,7 @@ public class MinionFSM : MonoBehaviour
             
             willMinionAttack = true;
         }
+        willMinionAttack = true;
 
     }
 

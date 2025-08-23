@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a51eff5a5cf6641a7328d9d9fa19ca, type: 3}
   m_Name: BigSword
   m_EditorClassIdentifier: 
-  weaponsName: Big Sword
-  weaponsBio: 'Its A big Sword
-
-'
+  weaponsName: big sword
+  weaponsBio: 
   holdingWeapon: 0
   bluntWeaponType: 1
   sharpWeaponType: 0
   pointyWeaponType: 0
   explosiveWeaponType: 0
-  maxDmg: 10
-  minDmg: 5
+  maxDmg: 14
+  minDmg: 2
+  addedDmg: 0
+  playerStatsToGet: {fileID: 0}
   dmgAmount: 0

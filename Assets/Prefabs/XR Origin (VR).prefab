@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 4
   m_Handedness: 0
   m_AttachTransform: {fileID: 5725581557726224210}
   m_KeepSelectedTargetValid: 1
@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 7118300878034884010}
   - component: {fileID: 6495233545285857808}
   - component: {fileID: 3409308695529717748}
+  - component: {fileID: 7608423561271466214}
   m_Layer: 7
   m_Name: Direct Interactor
   m_TagString: Untagged
@@ -584,6 +585,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_PhysicsTriggerInteraction: 1
+--- !u!114 &7608423561271466214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741975527837119982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &2118976064755757912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,6 +1136,7 @@ GameObject:
   - component: {fileID: 7090419621036639234}
   - component: {fileID: 8340913465851733499}
   - component: {fileID: 4120896187826403151}
+  - component: {fileID: 7498200598881559568}
   m_Layer: 7
   m_Name: Direct Interactor
   m_TagString: Untagged
@@ -1300,6 +1317,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_PhysicsTriggerInteraction: 1
+--- !u!114 &7498200598881559568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2267851575231524614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &2564686811689669157
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,7 +1401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
-    m_Bits: 0
+    m_Bits: 8
   m_Handedness: 0
   m_AttachTransform: {fileID: 4037846221975846194}
   m_KeepSelectedTargetValid: 1
@@ -1512,7 +1544,7 @@ Transform:
   m_GameObject: {fileID: 2873242721237853236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1176, z: 0}
+  m_LocalPosition: {x: 0, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1665,6 +1697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2612047775400713648}
   - component: {fileID: 6709929854107087007}
+  - component: {fileID: 7525085629318612054}
   m_Layer: 7
   m_Name: Right Hand
   m_TagString: Untagged
@@ -1758,6 +1791,21 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!114 &7525085629318612054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4140263884124794717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &4371401095762145223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,7 +2176,7 @@ MonoBehaviour:
   pDEX: 0
   pREF: 0
   pWIS: 0
-  pInt: 0
+  pINT: 0
   weaponCalling: 0
   playerInv: {fileID: 2564686811689669157}
   playerWeapon: {fileID: 360707152402095408}
@@ -2570,6 +2618,7 @@ GameObject:
   - component: {fileID: 5947213555343577813}
   - component: {fileID: 4936825627665489272}
   - component: {fileID: 7560942198753331692}
+  - component: {fileID: 8449703774132361386}
   m_Layer: 7
   m_Name: Near-Far Interactor
   m_TagString: Untagged
@@ -2884,6 +2933,21 @@ MonoBehaviour:
   m_SphereCastRadius: 0.1
   m_ConeCastAngle: 3
   m_LiveConeCastDebugVisuals: 0
+--- !u!114 &8449703774132361386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6673488320153143181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &6909484722038088366
 GameObject:
   m_ObjectHideFlags: 0
@@ -3197,6 +3261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5087566354573347139}
   - component: {fileID: 1309217259527243746}
+  - component: {fileID: 592204844033145221}
   m_Layer: 7
   m_Name: Left Hand
   m_TagString: Untagged
@@ -3292,6 +3357,21 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!114 &592204844033145221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8282935369552976701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &8554571386241162679
 GameObject:
   m_ObjectHideFlags: 0

@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2029218670387314310, guid: e7a5880eac46e004d916dc2c0e617c45, type: 3}
+      propertyPath: weaponsStats
+      value: 
+      objectReference: {fileID: 11400000, guid: d9b4cb8ad836d9a4487af8035ba19bd6, type: 2}
     - target: {fileID: 2946343866782034324, guid: e7a5880eac46e004d916dc2c0e617c45, type: 3}
       propertyPath: m_Name
       value: BigSword

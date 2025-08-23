@@ -13,23 +13,20 @@ public class WeaponStats : MonoBehaviour
 
     public void Holdingweapon()
     {
-        weaponHostered = false;
-        weaponsStats.holdingWeapon = true;
+       
         returnTime = 5;
 
     }
     public void NotHoldingweapon()
     {
-        weaponsStats.holdingWeapon = false;
         
     }
 
     private void Update()
     {
-        if (weaponsStats.holdingWeapon)
-        {
+      
             SelectWeapon();
-        }
+      
 
         if (!weaponsStats.holdingWeapon && !weaponHostered && playerToAddedWeaponTo != null && gameObject.transform.position != playerToAddedWeaponTo.transform.position)
         {
@@ -39,7 +36,7 @@ public class WeaponStats : MonoBehaviour
         if( returnTime < 0 )
         {
             WeaponBackToHoster();
-            returnTime = 5;
+            
         }
     }
 
@@ -49,7 +46,7 @@ public class WeaponStats : MonoBehaviour
         if (playerToAddedWeaponTo == null)
         {
             
-           playerToAddedWeaponTo = GameManager.instance.AddWeaponToPlayer(playerToAddedWeaponTo);
+            GameManager.instance.AddWeaponToPlayer(gameObject);
 
             if (playerToAddedWeaponTo != null)
             {
@@ -60,15 +57,20 @@ public class WeaponStats : MonoBehaviour
                 Debug.Log("Is this the weapon you want?");
             }
         }
+        else if(playerToAddedWeaponTo != null)
+        {
+            return;
+        }
 
     }
 
     public void WeaponBackToHoster()
     {
+      
+            gameObject.transform.position = playerToAddedWeaponTo.transform.position;
+            returnTime = 5;
+            return;
         
-        gameObject.transform.position = playerToAddedWeaponTo.transform.position;
-        weaponHostered = true;
-        return;
     }
 
 }

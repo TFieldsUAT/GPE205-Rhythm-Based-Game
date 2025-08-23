@@ -108,12 +108,364 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 431
+        width: 37
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b6d4041653c1f5419e17826ca9f6192
+      internalID: -2056551798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 431
+        width: 39
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c21e74091a0b4647b3ea70c941eda66
+      internalID: -13489469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 431
+        width: 40
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d67af5ff248edc418fd94f8f122d3e9
+      internalID: 292434158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 430
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e800d145cc129a4449fed7308096248d
+      internalID: -1012844314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_23
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 304
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc19e687cb262f5419d95cc9d6547da2
+      internalID: -1311269789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_26
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 304
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8fe069282b5e214a8db41a3862b9072
+      internalID: -1353844930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_29
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 304
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cb87c60ffbdd0c48a3f04aa1c3c41eb
+      internalID: 45684304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_31
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 304
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be6f06d0cd3751a478dd518e80e705cb
+      internalID: -930542120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_39
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 175
+        width: 31
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313217fe0a6b1b54daabacf392a305fb
+      internalID: -1509251545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_42
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 176
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e83035071bdd974e9c4170f977fee0c
+      internalID: -2068131056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_45
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 176
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41b76d434e7a6b947b863444a122f427
+      internalID: -1631471759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_47
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 176
+        width: 31
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5894fe86a4fb2bc438e2bf0349a2f0b3
+      internalID: 741890696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_53
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 48
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f615df49dfb0e0479121bfe7afb5c96
+      internalID: -351363020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_54
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 48
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07eaf02d141be974e8caa4e60f951aa0
+      internalID: 750870503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_58
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 48
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e9aa565568690409fecb1c2a1abeeb
+      internalID: -1536106242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_Yellow_Idle_60
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 48
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21bc677cbbf0b4f4eb9f9cd333bc1a02
+      internalID: 1280785012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b12a4ea59b72c9642aedda275b6b8bcd
     internalID: 0
     vertices: []
     indices: 
@@ -121,8 +473,83 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Golem_Yellow_Idle_0: -346106948
+      Golem_Yellow_Idle_1: -2056551798
+      Golem_Yellow_Idle_10: -1012844314
+      Golem_Yellow_Idle_11: -675929600
+      Golem_Yellow_Idle_12: 470541447
+      Golem_Yellow_Idle_13: 650732062
+      Golem_Yellow_Idle_14: -560930453
+      Golem_Yellow_Idle_15: 180358492
+      Golem_Yellow_Idle_16: 2032104375
+      Golem_Yellow_Idle_17: 142506834
+      Golem_Yellow_Idle_18: -1541602190
+      Golem_Yellow_Idle_19: 165799852
+      Golem_Yellow_Idle_2: -13489469
+      Golem_Yellow_Idle_20: 1089404297
+      Golem_Yellow_Idle_21: -1932281323
+      Golem_Yellow_Idle_22: 1397691057
+      Golem_Yellow_Idle_23: -1311269789
+      Golem_Yellow_Idle_24: -416307717
+      Golem_Yellow_Idle_25: -1726545504
+      Golem_Yellow_Idle_26: -1353844930
+      Golem_Yellow_Idle_27: -304055498
+      Golem_Yellow_Idle_28: -1003842491
+      Golem_Yellow_Idle_29: 45684304
+      Golem_Yellow_Idle_3: -557987108
+      Golem_Yellow_Idle_30: -1180503102
+      Golem_Yellow_Idle_31: -930542120
+      Golem_Yellow_Idle_32: -1044208672
+      Golem_Yellow_Idle_33: 240646728
+      Golem_Yellow_Idle_34: -649054417
+      Golem_Yellow_Idle_35: -64118324
+      Golem_Yellow_Idle_36: -196138708
+      Golem_Yellow_Idle_37: 188879037
+      Golem_Yellow_Idle_38: -328773732
+      Golem_Yellow_Idle_39: -1509251545
+      Golem_Yellow_Idle_4: 1520317345
+      Golem_Yellow_Idle_40: 886329463
+      Golem_Yellow_Idle_41: -366994239
+      Golem_Yellow_Idle_42: -2068131056
+      Golem_Yellow_Idle_43: -1143847648
+      Golem_Yellow_Idle_44: -1899539201
+      Golem_Yellow_Idle_45: -1631471759
+      Golem_Yellow_Idle_46: 1000779505
+      Golem_Yellow_Idle_47: 741890696
+      Golem_Yellow_Idle_48: -1625557364
+      Golem_Yellow_Idle_49: -624080183
+      Golem_Yellow_Idle_5: -1979853472
+      Golem_Yellow_Idle_50: 1563357771
+      Golem_Yellow_Idle_51: 100155172
+      Golem_Yellow_Idle_52: -90582977
+      Golem_Yellow_Idle_53: -351363020
+      Golem_Yellow_Idle_54: 750870503
+      Golem_Yellow_Idle_55: -1272929026
+      Golem_Yellow_Idle_56: -347128810
+      Golem_Yellow_Idle_57: 1124245043
+      Golem_Yellow_Idle_58: -1536106242
+      Golem_Yellow_Idle_59: -1243819002
+      Golem_Yellow_Idle_6: 292434158
+      Golem_Yellow_Idle_60: 1280785012
+      Golem_Yellow_Idle_61: -550895952
+      Golem_Yellow_Idle_62: 1701538152
+      Golem_Yellow_Idle_63: -1801671986
+      Golem_Yellow_Idle_64: -830888166
+      Golem_Yellow_Idle_65: -174401980
+      Golem_Yellow_Idle_66: -1430804789
+      Golem_Yellow_Idle_67: 1987842582
+      Golem_Yellow_Idle_68: 1988682764
+      Golem_Yellow_Idle_69: -801663074
+      Golem_Yellow_Idle_7: -1651742117
+      Golem_Yellow_Idle_70: -1508398224
+      Golem_Yellow_Idle_71: -1802800546
+      Golem_Yellow_Idle_72: 637094453
+      Golem_Yellow_Idle_8: 1488215731
+      Golem_Yellow_Idle_9: 1366782327
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

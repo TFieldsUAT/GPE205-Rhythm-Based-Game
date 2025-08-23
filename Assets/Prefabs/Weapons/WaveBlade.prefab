@@ -84,15 +84,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 905940618784414052, guid: e7a5880eac46e004d916dc2c0e617c45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.27543068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 905940618784414052, guid: e7a5880eac46e004d916dc2c0e617c45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3723
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 905940618784414052, guid: e7a5880eac46e004d916dc2c0e617c45, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.2126398
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 905940618784414052, guid: e7a5880eac46e004d916dc2c0e617c45, type: 3}
       propertyPath: m_LocalRotation.w
@@ -129,7 +129,7 @@ PrefabInstance:
     - target: {fileID: 2029218670387314310, guid: e7a5880eac46e004d916dc2c0e617c45, type: 3}
       propertyPath: weaponsStats
       value: 
-      objectReference: {fileID: 11400000, guid: 5f02e68a7a958a2409faee18815ec128, type: 2}
+      objectReference: {fileID: 11400000, guid: 1f9016196a1ec5f4a9dfd7c24cc441fb, type: 2}
     - target: {fileID: 2946343866782034324, guid: e7a5880eac46e004d916dc2c0e617c45, type: 3}
       propertyPath: m_Name
       value: WaveBlade

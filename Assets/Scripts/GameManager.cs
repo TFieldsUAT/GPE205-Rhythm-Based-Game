@@ -284,7 +284,7 @@ public class GameManager : MonoBehaviour
 
 
 
-
+    //Damgaes The player
     public void DmgtoPlayer(int dmgtoPlayer)
     {
         actors[0].GetComponent<AudioSource>().Play();
@@ -303,7 +303,7 @@ public class GameManager : MonoBehaviour
         }
         HideHub();
         maxNumberOfEnemies = Random.Range(0, 4) + levelInPlay;
-        tileTotal = tileX * tileY;
+        tileTotal = Random.Range(tileX,tileX*levelInPlay) * Random.Range(tileY, tileY * levelInPlay);
         LevelTileSpawner();
         CreatePlayer();
         SetBound();
@@ -376,7 +376,7 @@ public class GameManager : MonoBehaviour
 
             if (actors[i].GetComponent<PlayerStats>().weaponCalling == true)
             {
-              PlayerToAddWeapon = actors[i].GetComponent<PlayerStats>().playerWeapon;
+              PlayerToAddWeapon.GetComponent<WeaponStats>().playerToAddedWeaponTo = actors[i].GetComponent<PlayerStats>().playerWeapon;
             }
         }
          return PlayerToAddWeapon;
